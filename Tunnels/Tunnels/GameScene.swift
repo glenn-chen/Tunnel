@@ -17,16 +17,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentGameState: GameState!
     
     enum ControlScheme {
-        case position, accel, tap
+        case position, accel, tap, float
     }
-    var controlState: ControlScheme = .position
-    var currentLevel: String = "PositionTutorial"
-    var nextLevel: String = "Level_1"
+    var controlState: ControlScheme = .tap
+    var currentLevel: String = "Tap_4"
+    var nextLevel: String = "Tap_5"
     
     var reversalFactor: CGFloat = 1
     
     var hero: SKReferenceNode!
     var velocityY: CGFloat = 1.3
+    var velocityX: CGFloat = 2
     var accelFactor: CGFloat = 0
     
     var goal: SKSpriteNode!
@@ -34,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var cameraNode:SKCameraNode!
     
     override func didMove(to view: SKView) {
+        
         hero = childNode(withName: "//hero") as! SKReferenceNode
         
         physicsWorld.contactDelegate = self
@@ -48,6 +50,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         currentGameState = .active
         
         goal = childNode(withName: "goal") as! SKSpriteNode
+        
+        setSettings()
+        // add marker
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -71,9 +76,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
  
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         if currentGameState == .dead {
             loadLevel(currentLevel)
+            return
         }
+        else if currentGameState == .transition {
+            loadLevel(nextLevel)
+            return
+        }
+        
+        // remove marker
         
         if controlState == .position {
             hero.position.y = touches.first!.location(in: self).y * reversalFactor
@@ -85,7 +98,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if controlState == .tap {
             reversalFactor *= -1
-            print(hero.position.y)
         }
         
         
@@ -106,7 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        // add marker
     }
     
     
@@ -117,11 +129,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if currentGameState == .dead {
             return
         }
-        else if currentGameState == .transition {
-            loadLevel(nextLevel)
-        }
 
-        hero.position.x += 2
+        hero.position.x += velocityX
         
         if controlState == .tap {
             hero.position.y += velocityY * reversalFactor
@@ -150,7 +159,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView?.presentScene(scene)
         
         scene?.currentLevel = level
-        
         scene?.setNextLevel()
     }
     
@@ -158,12 +166,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if currentLevel == "PositionTutorial" {
             nextLevel = "Level_1"
         }
+        else if currentLevel == "TapTutorial" {
+            nextLevel = "Tap_1"
+        }
         else {
             //6 is the length of "Level_"
-            let index = currentLevel.index(currentLevel.startIndex, offsetBy: 6)
-            let levelNumber = Int(currentLevel.substring(from: index))
-            nextLevel = "Level_\(levelNumber! + 1)"
+         //   let index = currentLevel.index(currentLevel.startIndex, offsetBy: 6)
+            let index: Int = currentLevel.indexOf("_")
+            let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
+
+            let levelNumber = Int(currentLevel.substring(from: currentLevel.index(currentLevel.startIndex, offsetBy: index + 1)))
+            
+            let beginning = currentLevel.substring(to: realIndex)
+            
+            nextLevel = beginning + "_\(levelNumber! + 1)"
+
+        }
+        setSettings()
+    }
+    
+    func setSettings() {
+        switch currentLevel {
+        case "Tap_3", "Tap_4":
+            velocityY = 2
+        default:
+            velocityX = 2
+            velocityY = 1.3
+            print("ay")
         }
         
+    }
+}
+
+public extension String {
+    
+    public func indexOf(_ letter: Character) -> Int {
+        for index in 0..<self.characters.count {
+            let realIndex = self.index(self.startIndex, offsetBy: index)
+            let c = self[realIndex]
+            if c == letter {
+                return index
+            }
+        }
+        
+        // placeholder
+        return -1
     }
 }
