@@ -19,7 +19,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     enum ControlScheme {
         case position, accel, tap, float
     }
-    var controlState: ControlScheme = .tap
+    var controlState: ControlScheme = .position
     var currentLevel: String = "Tap_4"
     var nextLevel: String = "Tap_5"
     
@@ -30,12 +30,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var velocityX: CGFloat = 2
     var accelFactor: CGFloat = 0
     
+    var marker: SKNode!
     var goal: SKSpriteNode!
     var restartButton: MSButtonNode!
     var cameraNode:SKCameraNode!
     
-    override func didMove(to view: SKView) {
+    class func loadGameScene(level: String) -> GameScene? {
+        guard let scene = GameScene(fileNamed: level) else {
+            return nil
+        }
+        scene.scaleMode = .aspectFit
         
+        scene.currentLevel = level
+        
+        if level == "PositionTutorial" {
+            scene.controlState = .position
+            scene.velocityY = 0
+        }
+        else {
+            scene.controlState = .tap
+        }
+        
+    //    scene.setSettings()
+        scene.setNextLevel()
+        
+        return scene
+    }
+    
+    override func didMove(to view: SKView) {
         hero = childNode(withName: "//hero") as! SKReferenceNode
         
         physicsWorld.contactDelegate = self
@@ -52,7 +74,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         goal = childNode(withName: "goal") as! SKSpriteNode
         
         setSettings()
+        
         // add marker
+        if controlState == .position {
+            print("HELLO")
+            marker = childNode(withName: "//marker")
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -76,6 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
  
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touch \(currentGameState)")
         
         if currentGameState == .dead {
             loadLevel(currentLevel)
@@ -87,9 +115,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // remove marker
+        print(controlState)
         
         if controlState == .position {
             hero.position.y = touches.first!.location(in: self).y * reversalFactor
+            marker.isHidden = true
         }
         else if controlState == .accel {
             let touchLocation = touches.first!.location(in: self)
@@ -99,8 +129,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if controlState == .tap {
             reversalFactor *= -1
         }
-        
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -118,7 +146,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // add marker
+        // make marker visible
+        if controlState == .position {
+            marker.position.y = hero.position.y
+            marker.isHidden = false
+        }
     }
     
     
@@ -126,7 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Called before each frame is rendered
         
-        if currentGameState == .dead {
+        if currentGameState == .dead || currentGameState == .transition {
             return
         }
 
@@ -163,8 +195,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setNextLevel() {
+        print("Setting inext level")
         if currentLevel == "PositionTutorial" {
-            nextLevel = "Level_1"
+            nextLevel = "Position_1"
         }
         else if currentLevel == "TapTutorial" {
             nextLevel = "Tap_1"
@@ -186,13 +219,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setSettings() {
+        
         switch currentLevel {
         case "Tap_3", "Tap_4":
             velocityY = 2
+            controlState = .tap
         default:
             velocityX = 2
             velocityY = 1.3
-            print("ay")
+            controlState = .tap
+        }
+        
+        if currentLevel.indexOf("P") == 0 {
+            velocityY = 0
+            controlState = .position
         }
         
     }
