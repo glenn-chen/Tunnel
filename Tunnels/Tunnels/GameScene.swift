@@ -20,8 +20,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case position, accel, tap, float
     }
     var controlState: ControlScheme = .position
-    var currentLevel: String = "Tap_4"
-    var nextLevel: String = "Tap_5"
+    var currentLevel: String = "a"
+    var nextLevel: String = "a"
     
     var reversalFactor: CGFloat = 1
     
@@ -30,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var velocityX: CGFloat = 2
     var accelFactor: CGFloat = 0
     
-    var marker: SKNode!
+    var marker: SKReferenceNode!
     var goal: SKSpriteNode!
     var restartButton: MSButtonNode!
     var cameraNode:SKCameraNode!
@@ -42,22 +42,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scene.scaleMode = .aspectFit
         
         scene.currentLevel = level
+        scene.setNextLevel()
         
-        if level == "PositionTutorial" {
+      /* if level == "PositionTutorial" {
             scene.controlState = .position
+            scene.velocityX = 2
             scene.velocityY = 0
         }
-        else {
+        else if level == "TapTutorial" {
             scene.controlState = .tap
+            scene.velocityX = 2
+            scene.velocityY = 1.3
         }
+        else {
+            scene.controlState = .float
+            scene.velocityY = 0
+            scene.velocityX = 3
+        }*/
         
-    //    scene.setSettings()
-        scene.setNextLevel()
+        scene.setSettings()
         
         return scene
     }
     
     override func didMove(to view: SKView) {
+        print("beginning " + currentLevel)
+        
         hero = childNode(withName: "//hero") as! SKReferenceNode
         
         physicsWorld.contactDelegate = self
@@ -75,11 +85,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         setSettings()
         
+        print(controlState)
+        print("Level at end of didmove: \(currentLevel)")
         // add marker
-        if controlState == .position {
+     /*   if controlState == .position {
             print("HELLO")
-            marker = childNode(withName: "//marker")
-        }
+            marker = childNode(withName: "//marker") as! SKReferenceNode
+        }*/
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -103,9 +115,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
  
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touch \(currentGameState)")
         
         if currentGameState == .dead {
+            print("I'm dead in \(currentLevel)")
             loadLevel(currentLevel)
             return
         }
@@ -114,12 +126,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
-        // remove marker
         print(controlState)
         
         if controlState == .position {
             hero.position.y = touches.first!.location(in: self).y * reversalFactor
-            marker.isHidden = true
+        }
+        else if controlState == .float {
+            velocityX = 0
+            velocityY = 3
         }
         else if controlState == .accel {
             let touchLocation = touches.first!.location(in: self)
@@ -147,9 +161,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // make marker visible
-        if controlState == .position {
+     /*   if controlState == .position {
             marker.position.y = hero.position.y
             marker.isHidden = false
+        }*/
+        
+        if controlState == .float {
+            let temp = velocityX
+            velocityX = velocityY
+            velocityY = temp
         }
     }
     
@@ -163,19 +183,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         hero.position.x += velocityX
+        hero.position.y += velocityY * reversalFactor
         
-        if controlState == .tap {
+    /*    if controlState == .tap {
             hero.position.y += velocityY * reversalFactor
-        }
-        else {
+        }*/
+   /*     else {
             velocityY += accelFactor
             hero.position.y += velocityY * reversalFactor
-        }
+        } */
         
-        cameraNode.position.x = hero.position.x
+        /* Change camera position */
+        if controlState == .float {
+            cameraNode.position = hero.position
+        }
+        else {
+            cameraNode.position.x = hero.position.x
+        }
     }
     
     func loadLevel(_ level: String) {
+        
+        print("Loading...." + level)
+        
         currentGameState = .active
         
         /* Grab reference to our SpriteKit view */
@@ -191,7 +221,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView?.presentScene(scene)
         
         scene?.currentLevel = level
+        print("AOIUFPOA " + (scene?.currentLevel)!)
         scene?.setNextLevel()
+        scene?.setSettings()
+        currentLevel = level
     }
     
     func setNextLevel() {
@@ -202,9 +235,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if currentLevel == "TapTutorial" {
             nextLevel = "Tap_1"
         }
+        else if currentLevel == "FloatTutorial" {
+            nextLevel = "Float_1"
+        }
         else {
-            //6 is the length of "Level_"
-         //   let index = currentLevel.index(currentLevel.startIndex, offsetBy: 6)
             let index: Int = currentLevel.indexOf("_")
             let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
 
@@ -215,24 +249,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             nextLevel = beginning + "_\(levelNumber! + 1)"
 
         }
-        setSettings()
+        
     }
     
     func setSettings() {
         
-        switch currentLevel {
-        case "Tap_3", "Tap_4":
-            velocityY = 2
-            controlState = .tap
-        default:
-            velocityX = 2
-            velocityY = 1.3
-            controlState = .tap
+        if currentLevel.indexOf("T") == 0 {
+            //tap
+            switch currentLevel {
+            case "Tap_Tutorial", "Tap_1", "Tap_2", "Tap_3":
+                velocityX = 2
+                velocityY = 1.3
+                controlState = .tap
+                print("HEOSPHIESHGPESHGIS")
+            case "Tap_4", "Tap_5":
+                velocityX = 2
+                velocityY = 2
+                controlState = .tap
+            default:
+                velocityX = 2
+                velocityY = 1.3
+                controlState = .tap
+            }
         }
-        
-        if currentLevel.indexOf("P") == 0 {
+        else if currentLevel.indexOf("P") == 0 {
+            //position
             velocityY = 0
             controlState = .position
+        }
+        else if currentLevel.indexOf("F") == 0 {
+            //float
+            velocityY = 0 //start off going horizontally
+            velocityX = 3
+            controlState = .float
         }
         
     }
