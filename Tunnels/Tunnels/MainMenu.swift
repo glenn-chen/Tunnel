@@ -22,7 +22,7 @@ class MainMenu: SKScene {
         /* Set UI connections */
         positionButton = self.childNode(withName: "positionButton") as! MSButtonNode
         positionButton.selectedHandler = {
-            self.loadGame(level: "PositionTutorial")
+            self.loadGame(level: "Position_7")
         }
         
         tapButton = self.childNode(withName: "tapButton") as! MSButtonNode

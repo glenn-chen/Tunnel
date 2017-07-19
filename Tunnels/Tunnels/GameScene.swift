@@ -18,6 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     enum ControlScheme {
         case position, accel, tap, float
+        //trace, flight, reverse/turn/flip
     }
     var controlState: ControlScheme = .position
     var currentLevel: String = "a"
@@ -87,11 +88,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         print(controlState)
         print("Level at end of didmove: \(currentLevel)")
-        // add marker
-     /*   if controlState == .position {
-            print("HELLO")
-            marker = childNode(withName: "//marker") as! SKReferenceNode
-        }*/
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -111,6 +107,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if nodeA.name == "hero" || nodeB.name == "hero" {
             currentGameState = .dead
         }
+        
+        //hero.texture = SKTexture(imageNamed: "player1")
     }
 
  
@@ -126,14 +124,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
-        print(controlState)
+    //    print(controlState)
         
         if controlState == .position {
             hero.position.y = touches.first!.location(in: self).y * reversalFactor
         }
         else if controlState == .float {
-            velocityX = 0
-            velocityY = 3
+            let temp = velocityX
+            velocityX = velocityY
+            velocityY = temp
         }
         else if controlState == .accel {
             let touchLocation = touches.first!.location(in: self)
@@ -146,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if currentGameState == .dead || controlState == .tap {
+        if currentGameState == .dead || controlState == .tap || controlState == .float {
             return
         }
         
@@ -257,30 +256,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if currentLevel.indexOf("T") == 0 {
             //tap
             switch currentLevel {
-            case "Tap_Tutorial", "Tap_1", "Tap_2", "Tap_3":
+            case "TapTutorial", "Tap_1", "Tap_2", "Tap_3":
                 velocityX = 2
                 velocityY = 1.3
-                controlState = .tap
-                print("HEOSPHIESHGPESHGIS")
             case "Tap_4", "Tap_5":
                 velocityX = 2
                 velocityY = 2
-                controlState = .tap
             default:
                 velocityX = 2
                 velocityY = 1.3
-                controlState = .tap
             }
+            controlState = .tap
         }
         else if currentLevel.indexOf("P") == 0 {
             //position
             velocityY = 0
+            velocityX = 2
             controlState = .position
         }
         else if currentLevel.indexOf("F") == 0 {
             //float
-            velocityY = 0 //start off going horizontally
-            velocityX = 3
+            switch currentLevel {
+            case "Float_6", "Float_7":
+                velocityX = 4
+                velocityY = 0
+            case "Float_8":
+                velocityY = 4
+                velocityX = 0
+            default:
+                velocityX = 3
+                velocityY = 0
+            }
             controlState = .float
         }
         
