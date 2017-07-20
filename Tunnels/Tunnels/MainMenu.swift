@@ -15,6 +15,7 @@ class MainMenu: SKScene {
     var positionButton: MSButtonNode!
     var tapButton: MSButtonNode!
     var floatButton: MSButtonNode!
+    var gravityButton: MSButtonNode!
     
     override func didMove(to view: SKView) {
         /* Setup your scene here */
@@ -22,17 +23,22 @@ class MainMenu: SKScene {
         /* Set UI connections */
         positionButton = self.childNode(withName: "positionButton") as! MSButtonNode
         positionButton.selectedHandler = {
-            self.loadGame(level: "Position_7")
+            self.loadGame(level: "PositionTutorial")
         }
         
         tapButton = self.childNode(withName: "tapButton") as! MSButtonNode
         tapButton.selectedHandler = {
-            self.loadGame(level: "TapTutorial")
+            self.loadGame(level: "Tap_6")
         }
         
         floatButton = self.childNode(withName: "floatButton") as! MSButtonNode
         floatButton.selectedHandler = {
-            self.loadGame(level: "FloatTutorial")
+            self.loadGame(level: "Float_7")
+        }
+        
+        gravityButton = self.childNode(withName: "gravityButton") as! MSButtonNode
+        gravityButton.selectedHandler = {
+            self.loadGame(level: "GravityTutorial")
         }
         
     }

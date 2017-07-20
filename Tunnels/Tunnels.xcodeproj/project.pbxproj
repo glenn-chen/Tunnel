@@ -11,6 +11,8 @@
 		C90CEB951F1D281A00DFE10A /* Float_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB941F1D281A00DFE10A /* Float_1.sks */; };
 		C90CEB971F1D35E300DFE10A /* Float_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB961F1D35E300DFE10A /* Float_2.sks */; };
 		C90CEB991F1D528900DFE10A /* Float_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB981F1D528900DFE10A /* Float_3.sks */; };
+		C92143D41F200D6100824CE1 /* GravityTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92143D31F200D6100824CE1 /* GravityTutorial.sks */; };
+		C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92143D51F20299E00824CE1 /* Gravity_2.sks */; };
 		C947D7B41F1D667500ED0C97 /* Float_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B31F1D667500ED0C97 /* Float_4.sks */; };
 		C947D7B61F1D6C8100ED0C97 /* Brick.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B51F1D6C8100ED0C97 /* Brick.sks */; };
 		C947D7B81F1D755900ED0C97 /* Tap_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B71F1D755900ED0C97 /* Tap_1.sks */; };
@@ -47,6 +49,7 @@
 		C9D9C51B1F1425C1001F1C50 /* TapTester.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C51A1F1425C1001F1C50 /* TapTester.sks */; };
 		C9D9C51D1F14269D001F1C50 /* Hero.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C51C1F14269D001F1C50 /* Hero.sks */; };
 		C9D9C51F1F143AA7001F1C50 /* AccelTester.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C51E1F143AA7001F1C50 /* AccelTester.sks */; };
+		C9DEB3AE1F2112DA00BAD3AD /* Gravity_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9DEB3AD1F2112DA00BAD3AD /* Gravity_1.sks */; };
 		C9E3C3261F16D4E00049338F /* Position_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E3C3251F16D4E00049338F /* Position_3.sks */; };
 		C9E3C3281F17D4640049338F /* TapTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E3C3271F17D4640049338F /* TapTutorial.sks */; };
 		C9F332D81F1D860400AB7E7E /* Float_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9F332D71F1D860400AB7E7E /* Float_5.sks */; };
@@ -75,6 +78,8 @@
 		C90CEB941F1D281A00DFE10A /* Float_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_1.sks; sourceTree = "<group>"; };
 		C90CEB961F1D35E300DFE10A /* Float_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_2.sks; sourceTree = "<group>"; };
 		C90CEB981F1D528900DFE10A /* Float_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_3.sks; sourceTree = "<group>"; };
+		C92143D31F200D6100824CE1 /* GravityTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GravityTutorial.sks; sourceTree = "<group>"; };
+		C92143D51F20299E00824CE1 /* Gravity_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_2.sks; sourceTree = "<group>"; };
 		C947D7B31F1D667500ED0C97 /* Float_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_4.sks; sourceTree = "<group>"; };
 		C947D7B51F1D6C8100ED0C97 /* Brick.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Brick.sks; sourceTree = "<group>"; };
 		C947D7B71F1D755900ED0C97 /* Tap_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_1.sks; sourceTree = "<group>"; };
@@ -117,6 +122,7 @@
 		C9D9C51A1F1425C1001F1C50 /* TapTester.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TapTester.sks; sourceTree = "<group>"; };
 		C9D9C51C1F14269D001F1C50 /* Hero.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Hero.sks; sourceTree = "<group>"; };
 		C9D9C51E1F143AA7001F1C50 /* AccelTester.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AccelTester.sks; sourceTree = "<group>"; };
+		C9DEB3AD1F2112DA00BAD3AD /* Gravity_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_1.sks; sourceTree = "<group>"; };
 		C9E3C3251F16D4E00049338F /* Position_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_3.sks; sourceTree = "<group>"; };
 		C9E3C3271F17D4640049338F /* TapTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TapTutorial.sks; sourceTree = "<group>"; };
 		C9F332D71F1D860400AB7E7E /* Float_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_5.sks; sourceTree = "<group>"; };
@@ -148,6 +154,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C92143D01F1FC13A00824CE1 /* Gravity Levels */ = {
+			isa = PBXGroup;
+			children = (
+				C92143D31F200D6100824CE1 /* GravityTutorial.sks */,
+				C9DEB3AD1F2112DA00BAD3AD /* Gravity_1.sks */,
+				C92143D51F20299E00824CE1 /* Gravity_2.sks */,
+			);
+			name = "Gravity Levels";
+			sourceTree = "<group>";
+		};
 		C98179941F192346007C38CF /* Position Levels */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +236,7 @@
 				C98179941F192346007C38CF /* Position Levels */,
 				C98179951F192380007C38CF /* Tap Levels */,
 				C98179981F193E96007C38CF /* Float Levels */,
+				C92143D01F1FC13A00824CE1 /* Gravity Levels */,
 				C98179961F192853007C38CF /* MainMenu.swift */,
 				C9D9C5181F13EC9B001F1C50 /* MainMenu.sks */,
 				C9D9C51C1F14269D001F1C50 /* Hero.sks */,
@@ -370,7 +387,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92143D41F200D6100824CE1 /* GravityTutorial.sks in Resources */,
 				C94E65671F181C07007A19CF /* Tap_5.sks in Resources */,
+				C9DEB3AE1F2112DA00BAD3AD /* Gravity_1.sks in Resources */,
 				C9D9C4EE1F13DF41001F1C50 /* Main.storyboard in Resources */,
 				C99DF4011F1692B100D59066 /* Position_2.sks in Resources */,
 				C90CEB971F1D35E300DFE10A /* Float_2.sks in Resources */,
@@ -394,6 +413,7 @@
 				C94E65631F17EDA2007A19CF /* Tap_2.sks in Resources */,
 				C9F730751F16C17B008EEFEE /* Position_5.sks in Resources */,
 				C9F332D81F1D860400AB7E7E /* Float_5.sks in Resources */,
+				C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */,
 				C9D9C51B1F1425C1001F1C50 /* TapTester.sks in Resources */,
 				C90CEB931F1D171300DFE10A /* FloatTutorial.sks in Resources */,
 				C9998EBE1F1E7458007D41DB /* Position_6.sks in Resources */,

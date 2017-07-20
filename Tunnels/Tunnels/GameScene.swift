@@ -17,7 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentGameState: GameState!
     
     enum ControlScheme {
-        case position, accel, tap, float
+        case position, tap, float, gravity
         //trace, flight, reverse/turn/flip
     }
     var controlState: ControlScheme = .position
@@ -30,8 +30,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var velocityY: CGFloat = 1.3
     var velocityX: CGFloat = 2
     var accelFactor: CGFloat = 0
+    var fallSpeed: CGFloat = 0.1
     
-    var marker: SKReferenceNode!
     var goal: SKSpriteNode!
     var restartButton: MSButtonNode!
     var cameraNode:SKCameraNode!
@@ -69,16 +69,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         print("beginning " + currentLevel)
         
-        hero = childNode(withName: "//hero") as! SKReferenceNode
+        hero = self.childNode(withName: "//hero") as! SKReferenceNode
         
         physicsWorld.contactDelegate = self
         
         cameraNode = childNode(withName: "cameraNode") as! SKCameraNode
         self.camera = cameraNode
         
-        if controlState == .accel || controlState == .position {
+    /*    if controlState == .position {
             velocityY = 0
-        }
+        }*/
         
         currentGameState = .active
         
@@ -88,9 +88,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         print(controlState)
         print("Level at end of didmove: \(currentLevel)")
+
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
         /* Get references to bodies involved in collision */
         let contactA = contact.bodyA
         let contactB = contact.bodyB
@@ -110,7 +112,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //hero.texture = SKTexture(imageNamed: "player1")
     }
-
  
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -134,37 +135,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             velocityX = velocityY
             velocityY = temp
         }
-        else if controlState == .accel {
-            let touchLocation = touches.first!.location(in: self)
-            accelFactor = touchLocation.y * 0.0005
-            
-        }
         else if controlState == .tap {
             reversalFactor *= -1
+        }
+        else if controlState == .gravity {
+            velocityY += 2.5
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if currentGameState == .dead || controlState == .tap || controlState == .float {
+        if currentGameState == .dead || controlState != .position {
             return
         }
         
         if controlState == .position {
             hero.position.y = touches.first!.location(in: self).y * reversalFactor
         }
-        else if controlState == .accel {
+    /*    else if controlState == .accel {
             let touchLocation = touches.first!.location(in: self)
             accelFactor = touchLocation.y * 0.0005
-        }
+        }*/
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // make marker visible
-     /*   if controlState == .position {
-            marker.position.y = hero.position.y
-            marker.isHidden = false
-        }*/
-        
         if controlState == .float {
             let temp = velocityX
             velocityX = velocityY
@@ -183,6 +176,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         hero.position.x += velocityX
         hero.position.y += velocityY * reversalFactor
+        
+        if controlState == .gravity {
+            velocityY -= fallSpeed
+        }
         
     /*    if controlState == .tap {
             hero.position.y += velocityY * reversalFactor
@@ -237,6 +234,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if currentLevel == "FloatTutorial" {
             nextLevel = "Float_1"
         }
+        else if currentLevel == "GravityTutorial" {
+            nextLevel = "Gravity_1"
+        }
         else {
             let index: Int = currentLevel.indexOf("_")
             let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
@@ -262,32 +262,58 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case "Tap_4", "Tap_5":
                 velocityX = 2
                 velocityY = 2
+            case "Tap_6":
+                velocityX = 2.5
+                velocityY = 2.5
             default:
                 velocityX = 2
                 velocityY = 1.3
             }
             controlState = .tap
+            self.physicsWorld.gravity.dy = 0
         }
         else if currentLevel.indexOf("P") == 0 {
             //position
+            switch currentLevel {
+            case "Position_8":
+                velocityX = 2.5
+            default:
+                velocityX = 2
+            }
             velocityY = 0
-            velocityX = 2
             controlState = .position
+            self.physicsWorld.gravity.dy = 0
         }
         else if currentLevel.indexOf("F") == 0 {
             //float
             switch currentLevel {
-            case "Float_6", "Float_7":
+            case "Float_6":
+                velocityX = 3.5
+                velocityY = 0
+            case "Float_7":
                 velocityX = 4
                 velocityY = 0
             case "Float_8":
-                velocityY = 4
                 velocityX = 0
+                velocityY = 4
             default:
                 velocityX = 3
                 velocityY = 0
             }
             controlState = .float
+            self.physicsWorld.gravity.dy = 0
+        }
+        else if currentLevel.indexOf("G") == 0 {
+            //swipe
+            switch currentLevel {
+            default:
+                velocityX = 3
+                velocityY = 1
+                break;
+            }
+            controlState = .gravity
+            self.physicsWorld.gravity.dy = 0
+            
         }
         
     }
