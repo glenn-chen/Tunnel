@@ -38,7 +38,7 @@ class MainMenu: SKScene {
         
         gravityButton = self.childNode(withName: "gravityButton") as! MSButtonNode
         gravityButton.selectedHandler = {
-            self.loadGame(level: "GravityTutorial")
+            self.loadGame(level: "Gravity_4")
         }
         
     }

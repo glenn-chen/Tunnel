@@ -82,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         currentGameState = .active
         
-        goal = childNode(withName: "goal") as! SKSpriteNode
+    //    goal = childNode(withName: "goal") as! SKSpriteNode
         
         setSettings()
         
@@ -114,7 +114,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
  
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if currentGameState == .dead {
             print("I'm dead in \(currentLevel)")
             loadLevel(currentLevel)
