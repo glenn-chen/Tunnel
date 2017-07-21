@@ -100,15 +100,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if nodeA.name == "cloak" || nodeB.name == "cloak" {
             hero.isHidden = !hero.isHidden
-            return
         }
-        
-        if nodeA.name == "goal" || nodeB.name == "goal" {
+        else if nodeA.name == "goal" || nodeB.name == "goal" {
             currentGameState = .transition
             return
         }
-        
-        if nodeA.name == "hero" || nodeB.name == "hero" {
+        else if nodeA.name == "finalGoal" || nodeB.name == "finalGoal" {
+            if let view = self.view as! SKView? {
+                // Load the SKScene from 'GameScene.sks'
+                if let scene = MainMenu(fileNamed: "MainMenu") {
+                    // Set the scale mode to scale to fit the window
+                    scene.scaleMode = .aspectFill
+                    
+                    // Present the scene
+                    view.presentScene(scene)
+                }
+                
+                view.ignoresSiblingOrder = true
+                view.showsPhysics = false
+                view.showsFPS = true
+                view.showsNodeCount = true
+            }
+        }
+        else if nodeA.name == "hero" || nodeB.name == "hero" { // contacts with goal and cloak will have already been detected
             currentGameState = .dead
         }
         
@@ -122,6 +136,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         else if currentGameState == .transition {
+         /*   do {
+                try loadLevel(nextLevel)
+            } catch () {
+                
+             
+                }
+            }*/
             loadLevel(nextLevel)
             return
         }
@@ -202,7 +223,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func loadLevel(_ level: String) {
         
-        print("Loading...." + level)
+    //    print("Loading...." + level)
         
         currentGameState = .active
         
@@ -219,7 +240,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView?.presentScene(scene)
         
         scene?.currentLevel = level
-        print("AOIUFPOA " + (scene?.currentLevel)!)
+ //       print("AOIUFPOA " + (scene?.currentLevel)!)
         scene?.setNextLevel()
         scene?.setSettings()
         currentLevel = level

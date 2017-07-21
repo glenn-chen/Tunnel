@@ -13,6 +13,8 @@
 		C90CEB991F1D528900DFE10A /* Float_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB981F1D528900DFE10A /* Float_4.sks */; };
 		C92143D41F200D6100824CE1 /* GravityTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92143D31F200D6100824CE1 /* GravityTutorial.sks */; };
 		C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92143D51F20299E00824CE1 /* Gravity_2.sks */; };
+		C931AD991F229DD900B5D87E /* Gravity_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C931AD981F229DD900B5D87E /* Gravity_6.sks */; };
+		C931AD9B1F22ACA700B5D87E /* Selection_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C931AD9A1F22ACA700B5D87E /* Selection_1.sks */; };
 		C947D7B41F1D667500ED0C97 /* Float_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B31F1D667500ED0C97 /* Float_5.sks */; };
 		C947D7B61F1D6C8100ED0C97 /* Brick.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B51F1D6C8100ED0C97 /* Brick.sks */; };
 		C947D7B81F1D755900ED0C97 /* Tap_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B71F1D755900ED0C97 /* Tap_1.sks */; };
@@ -86,6 +88,8 @@
 		C90CEB981F1D528900DFE10A /* Float_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_4.sks; sourceTree = "<group>"; };
 		C92143D31F200D6100824CE1 /* GravityTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GravityTutorial.sks; sourceTree = "<group>"; };
 		C92143D51F20299E00824CE1 /* Gravity_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_2.sks; sourceTree = "<group>"; };
+		C931AD981F229DD900B5D87E /* Gravity_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_6.sks; sourceTree = "<group>"; };
+		C931AD9A1F22ACA700B5D87E /* Selection_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Selection_1.sks; sourceTree = "<group>"; };
 		C947D7B31F1D667500ED0C97 /* Float_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_5.sks; sourceTree = "<group>"; };
 		C947D7B51F1D6C8100ED0C97 /* Brick.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Brick.sks; sourceTree = "<group>"; };
 		C947D7B71F1D755900ED0C97 /* Tap_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_1.sks; sourceTree = "<group>"; };
@@ -175,8 +179,17 @@
 				C9EE41581F21176900D9FBB3 /* Gravity_3.sks */,
 				C9EE415A1F21220E00D9FBB3 /* Gravity_4.sks */,
 				C9FB7BE31F2259E700252728 /* Gravity_5.sks */,
+				C931AD981F229DD900B5D87E /* Gravity_6.sks */,
 			);
 			name = "Gravity Levels";
+			sourceTree = "<group>";
+		};
+		C931AD9C1F22AEB300B5D87E /* Selection Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C931AD9A1F22ACA700B5D87E /* Selection_1.sks */,
+			);
+			name = "Selection Scenes";
 			sourceTree = "<group>";
 		};
 		C98179941F192346007C38CF /* Position Levels */ = {
@@ -251,6 +264,7 @@
 		C9D9C4E11F13DF41001F1C50 /* Tunnels */ = {
 			isa = PBXGroup;
 			children = (
+				C931AD9C1F22AEB300B5D87E /* Selection Scenes */,
 				C98179941F192346007C38CF /* Position Levels */,
 				C98179951F192380007C38CF /* Tap Levels */,
 				C98179981F193E96007C38CF /* Float Levels */,
@@ -436,6 +450,8 @@
 				C94E65631F17EDA2007A19CF /* Tap_2.sks in Resources */,
 				C9F730751F16C17B008EEFEE /* Position_5.sks in Resources */,
 				C9F332D81F1D860400AB7E7E /* Float_6.sks in Resources */,
+				C931AD9B1F22ACA700B5D87E /* Selection_1.sks in Resources */,
+				C931AD991F229DD900B5D87E /* Gravity_6.sks in Resources */,
 				C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */,
 				C9D9C51B1F1425C1001F1C50 /* TapTester.sks in Resources */,
 				C90CEB931F1D171300DFE10A /* FloatTutorial.sks in Resources */,
