@@ -23,22 +23,22 @@ class MainMenu: SKScene {
         /* Set UI connections */
         positionButton = self.childNode(withName: "positionButton") as! MSButtonNode
         positionButton.selectedHandler = {
-            self.loadGame(level: "PositionTutorial")
+            self.loadGame(level: "Position_1")
         }
         
         tapButton = self.childNode(withName: "tapButton") as! MSButtonNode
         tapButton.selectedHandler = {
-            self.loadGame(level: "Tap_6")
+            self.loadGame(level: "Tap_1")
         }
         
         floatButton = self.childNode(withName: "floatButton") as! MSButtonNode
         floatButton.selectedHandler = {
-            self.loadGame(level: "Float_7")
+            self.loadGame(level: "Float_5")
         }
         
         gravityButton = self.childNode(withName: "gravityButton") as! MSButtonNode
         gravityButton.selectedHandler = {
-            self.loadGame(level: "Gravity_4")
+            self.loadGame(level: "Gravity_1")
         }
         
     }

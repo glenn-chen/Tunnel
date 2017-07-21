@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		C90CEB931F1D171300DFE10A /* FloatTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB921F1D171300DFE10A /* FloatTutorial.sks */; };
 		C90CEB951F1D281A00DFE10A /* Float_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB941F1D281A00DFE10A /* Float_1.sks */; };
-		C90CEB971F1D35E300DFE10A /* Float_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB961F1D35E300DFE10A /* Float_2.sks */; };
-		C90CEB991F1D528900DFE10A /* Float_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB981F1D528900DFE10A /* Float_3.sks */; };
+		C90CEB971F1D35E300DFE10A /* Float_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB961F1D35E300DFE10A /* Float_3.sks */; };
+		C90CEB991F1D528900DFE10A /* Float_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB981F1D528900DFE10A /* Float_4.sks */; };
 		C92143D41F200D6100824CE1 /* GravityTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92143D31F200D6100824CE1 /* GravityTutorial.sks */; };
 		C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92143D51F20299E00824CE1 /* Gravity_2.sks */; };
-		C947D7B41F1D667500ED0C97 /* Float_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B31F1D667500ED0C97 /* Float_4.sks */; };
+		C947D7B41F1D667500ED0C97 /* Float_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B31F1D667500ED0C97 /* Float_5.sks */; };
 		C947D7B61F1D6C8100ED0C97 /* Brick.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B51F1D6C8100ED0C97 /* Brick.sks */; };
 		C947D7B81F1D755900ED0C97 /* Tap_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B71F1D755900ED0C97 /* Tap_1.sks */; };
 		C94E65611F17E13A007A19CF /* Tap_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C94E65601F17E13A007A19CF /* Tap_3.sks */; };
@@ -26,9 +26,9 @@
 		C9998EBE1F1E7458007D41DB /* Position_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EBD1F1E7458007D41DB /* Position_6.sks */; };
 		C9998EC01F1E8DC3007D41DB /* Position_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EBF1F1E8DC3007D41DB /* Position_7.sks */; };
 		C9998EC21F1EAF4B007D41DB /* Position_8.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC11F1EAF4B007D41DB /* Position_8.sks */; };
-		C9998EC41F1EAFF5007D41DB /* Float_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC31F1EAFF5007D41DB /* Float_6.sks */; };
-		C9998EC61F1EC9A3007D41DB /* Float_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC51F1EC9A3007D41DB /* Float_7.sks */; };
-		C9998EC81F1EC9AC007D41DB /* Float_8.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC71F1EC9AC007D41DB /* Float_8.sks */; };
+		C9998EC41F1EAFF5007D41DB /* Float_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC31F1EAFF5007D41DB /* Float_7.sks */; };
+		C9998EC61F1EC9A3007D41DB /* Float_8.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC51F1EC9A3007D41DB /* Float_8.sks */; };
+		C9998EC81F1EC9AC007D41DB /* Float_9.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC71F1EC9AC007D41DB /* Float_9.sks */; };
 		C9998ECA1F1ED174007D41DB /* Tap_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC91F1ED174007D41DB /* Tap_6.sks */; };
 		C99DF4011F1692B100D59066 /* Position_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C99DF4001F1692B100D59066 /* Position_2.sks */; };
 		C9D65AE71F154C5A00BDD4CE /* Position_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D65AE61F154C5A00BDD4CE /* Position_4.sks */; };
@@ -55,8 +55,11 @@
 		C9EE41591F21176900D9FBB3 /* Gravity_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE41581F21176900D9FBB3 /* Gravity_3.sks */; };
 		C9EE415B1F21220E00D9FBB3 /* Gravity_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE415A1F21220E00D9FBB3 /* Gravity_4.sks */; };
 		C9EE415D1F2156F900D9FBB3 /* Tap_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE415C1F2156F900D9FBB3 /* Tap_7.sks */; };
-		C9F332D81F1D860400AB7E7E /* Float_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9F332D71F1D860400AB7E7E /* Float_5.sks */; };
+		C9F332D81F1D860400AB7E7E /* Float_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9F332D71F1D860400AB7E7E /* Float_6.sks */; };
 		C9F730751F16C17B008EEFEE /* Position_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9F730741F16C17B008EEFEE /* Position_5.sks */; };
+		C9FB7BE41F2259E700252728 /* Gravity_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9FB7BE31F2259E700252728 /* Gravity_5.sks */; };
+		C9FB7BE61F226C3F00252728 /* Tap_8.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9FB7BE51F226C3F00252728 /* Tap_8.sks */; };
+		C9FB7BE81F226FFD00252728 /* Float_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9FB7BE71F226FFD00252728 /* Float_2.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,11 +82,11 @@
 /* Begin PBXFileReference section */
 		C90CEB921F1D171300DFE10A /* FloatTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FloatTutorial.sks; sourceTree = "<group>"; };
 		C90CEB941F1D281A00DFE10A /* Float_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_1.sks; sourceTree = "<group>"; };
-		C90CEB961F1D35E300DFE10A /* Float_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_2.sks; sourceTree = "<group>"; };
-		C90CEB981F1D528900DFE10A /* Float_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_3.sks; sourceTree = "<group>"; };
+		C90CEB961F1D35E300DFE10A /* Float_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_3.sks; sourceTree = "<group>"; };
+		C90CEB981F1D528900DFE10A /* Float_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_4.sks; sourceTree = "<group>"; };
 		C92143D31F200D6100824CE1 /* GravityTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GravityTutorial.sks; sourceTree = "<group>"; };
 		C92143D51F20299E00824CE1 /* Gravity_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_2.sks; sourceTree = "<group>"; };
-		C947D7B31F1D667500ED0C97 /* Float_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_4.sks; sourceTree = "<group>"; };
+		C947D7B31F1D667500ED0C97 /* Float_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_5.sks; sourceTree = "<group>"; };
 		C947D7B51F1D6C8100ED0C97 /* Brick.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Brick.sks; sourceTree = "<group>"; };
 		C947D7B71F1D755900ED0C97 /* Tap_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_1.sks; sourceTree = "<group>"; };
 		C94E65601F17E13A007A19CF /* Tap_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_3.sks; sourceTree = "<group>"; };
@@ -96,9 +99,9 @@
 		C9998EBD1F1E7458007D41DB /* Position_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_6.sks; sourceTree = "<group>"; };
 		C9998EBF1F1E8DC3007D41DB /* Position_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_7.sks; sourceTree = "<group>"; };
 		C9998EC11F1EAF4B007D41DB /* Position_8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_8.sks; sourceTree = "<group>"; };
-		C9998EC31F1EAFF5007D41DB /* Float_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_6.sks; sourceTree = "<group>"; };
-		C9998EC51F1EC9A3007D41DB /* Float_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_7.sks; sourceTree = "<group>"; };
-		C9998EC71F1EC9AC007D41DB /* Float_8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_8.sks; sourceTree = "<group>"; };
+		C9998EC31F1EAFF5007D41DB /* Float_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_7.sks; sourceTree = "<group>"; };
+		C9998EC51F1EC9A3007D41DB /* Float_8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_8.sks; sourceTree = "<group>"; };
+		C9998EC71F1EC9AC007D41DB /* Float_9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_9.sks; sourceTree = "<group>"; };
 		C9998EC91F1ED174007D41DB /* Tap_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_6.sks; sourceTree = "<group>"; };
 		C99DF4001F1692B100D59066 /* Position_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_2.sks; sourceTree = "<group>"; };
 		C9D65AE61F154C5A00BDD4CE /* Position_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_4.sks; sourceTree = "<group>"; };
@@ -131,8 +134,11 @@
 		C9EE41581F21176900D9FBB3 /* Gravity_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_3.sks; sourceTree = "<group>"; };
 		C9EE415A1F21220E00D9FBB3 /* Gravity_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_4.sks; sourceTree = "<group>"; };
 		C9EE415C1F2156F900D9FBB3 /* Tap_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_7.sks; sourceTree = "<group>"; };
-		C9F332D71F1D860400AB7E7E /* Float_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_5.sks; sourceTree = "<group>"; };
+		C9F332D71F1D860400AB7E7E /* Float_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_6.sks; sourceTree = "<group>"; };
 		C9F730741F16C17B008EEFEE /* Position_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_5.sks; sourceTree = "<group>"; };
+		C9FB7BE31F2259E700252728 /* Gravity_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_5.sks; sourceTree = "<group>"; };
+		C9FB7BE51F226C3F00252728 /* Tap_8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_8.sks; sourceTree = "<group>"; };
+		C9FB7BE71F226FFD00252728 /* Float_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_2.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,7 @@
 				C92143D51F20299E00824CE1 /* Gravity_2.sks */,
 				C9EE41581F21176900D9FBB3 /* Gravity_3.sks */,
 				C9EE415A1F21220E00D9FBB3 /* Gravity_4.sks */,
+				C9FB7BE31F2259E700252728 /* Gravity_5.sks */,
 			);
 			name = "Gravity Levels";
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 				C94E65661F181C07007A19CF /* Tap_5.sks */,
 				C9998EC91F1ED174007D41DB /* Tap_6.sks */,
 				C9EE415C1F2156F900D9FBB3 /* Tap_7.sks */,
+				C9FB7BE51F226C3F00252728 /* Tap_8.sks */,
 			);
 			name = "Tap Levels";
 			sourceTree = "<group>";
@@ -208,13 +216,14 @@
 			children = (
 				C90CEB921F1D171300DFE10A /* FloatTutorial.sks */,
 				C90CEB941F1D281A00DFE10A /* Float_1.sks */,
-				C90CEB961F1D35E300DFE10A /* Float_2.sks */,
-				C90CEB981F1D528900DFE10A /* Float_3.sks */,
-				C947D7B31F1D667500ED0C97 /* Float_4.sks */,
-				C9F332D71F1D860400AB7E7E /* Float_5.sks */,
-				C9998EC31F1EAFF5007D41DB /* Float_6.sks */,
-				C9998EC51F1EC9A3007D41DB /* Float_7.sks */,
-				C9998EC71F1EC9AC007D41DB /* Float_8.sks */,
+				C9FB7BE71F226FFD00252728 /* Float_2.sks */,
+				C90CEB961F1D35E300DFE10A /* Float_3.sks */,
+				C90CEB981F1D528900DFE10A /* Float_4.sks */,
+				C947D7B31F1D667500ED0C97 /* Float_5.sks */,
+				C9F332D71F1D860400AB7E7E /* Float_6.sks */,
+				C9998EC31F1EAFF5007D41DB /* Float_7.sks */,
+				C9998EC51F1EC9A3007D41DB /* Float_8.sks */,
+				C9998EC71F1EC9AC007D41DB /* Float_9.sks */,
 			);
 			name = "Float Levels";
 			sourceTree = "<group>";
@@ -402,41 +411,44 @@
 				C9DEB3AE1F2112DA00BAD3AD /* Gravity_1.sks in Resources */,
 				C9D9C4EE1F13DF41001F1C50 /* Main.storyboard in Resources */,
 				C99DF4011F1692B100D59066 /* Position_2.sks in Resources */,
-				C90CEB971F1D35E300DFE10A /* Float_2.sks in Resources */,
+				C9FB7BE41F2259E700252728 /* Gravity_5.sks in Resources */,
+				C90CEB971F1D35E300DFE10A /* Float_3.sks in Resources */,
 				C981799B1F1941FB007C38CF /* Marker.sks in Resources */,
 				C9D65AE91F157D2C00BDD4CE /* PositionTutorial.sks in Resources */,
 				C963BD791F16957B00F19656 /* Levels.txt in Resources */,
 				C9E3C3281F17D4640049338F /* TapTutorial.sks in Resources */,
-				C90CEB991F1D528900DFE10A /* Float_3.sks in Resources */,
+				C90CEB991F1D528900DFE10A /* Float_4.sks in Resources */,
 				C9E3C3261F16D4E00049338F /* Position_3.sks in Resources */,
 				C90CEB951F1D281A00DFE10A /* Float_1.sks in Resources */,
+				C9FB7BE61F226C3F00252728 /* Tap_8.sks in Resources */,
 				C9EE415B1F21220E00D9FBB3 /* Gravity_4.sks in Resources */,
-				C9998EC81F1EC9AC007D41DB /* Float_8.sks in Resources */,
+				C9998EC81F1EC9AC007D41DB /* Float_9.sks in Resources */,
 				C9D9C5191F13EC9B001F1C50 /* MainMenu.sks in Resources */,
 				C9D9C4E51F13DF41001F1C50 /* PositionTester.sks in Resources */,
 				C9D9C4F01F13DF41001F1C50 /* Assets.xcassets in Resources */,
-				C947D7B41F1D667500ED0C97 /* Float_4.sks in Resources */,
+				C947D7B41F1D667500ED0C97 /* Float_5.sks in Resources */,
 				C9D9C51F1F143AA7001F1C50 /* AccelTester.sks in Resources */,
 				C947D7B81F1D755900ED0C97 /* Tap_1.sks in Resources */,
 				C9998ECA1F1ED174007D41DB /* Tap_6.sks in Resources */,
 				C9D65AEB1F158F9C00BDD4CE /* Position_1.sks in Resources */,
-				C9998EC61F1EC9A3007D41DB /* Float_7.sks in Resources */,
+				C9998EC61F1EC9A3007D41DB /* Float_8.sks in Resources */,
 				C9EE41591F21176900D9FBB3 /* Gravity_3.sks in Resources */,
 				C94E65631F17EDA2007A19CF /* Tap_2.sks in Resources */,
 				C9F730751F16C17B008EEFEE /* Position_5.sks in Resources */,
-				C9F332D81F1D860400AB7E7E /* Float_5.sks in Resources */,
+				C9F332D81F1D860400AB7E7E /* Float_6.sks in Resources */,
 				C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */,
 				C9D9C51B1F1425C1001F1C50 /* TapTester.sks in Resources */,
 				C90CEB931F1D171300DFE10A /* FloatTutorial.sks in Resources */,
 				C9998EBE1F1E7458007D41DB /* Position_6.sks in Resources */,
 				C9998EC01F1E8DC3007D41DB /* Position_7.sks in Resources */,
 				C9D65AE71F154C5A00BDD4CE /* Position_4.sks in Resources */,
+				C9FB7BE81F226FFD00252728 /* Float_2.sks in Resources */,
 				C94E65651F17FA0E007A19CF /* Tap_4.sks in Resources */,
 				C9998EC21F1EAF4B007D41DB /* Position_8.sks in Resources */,
 				C947D7B61F1D6C8100ED0C97 /* Brick.sks in Resources */,
 				C9D9C51D1F14269D001F1C50 /* Hero.sks in Resources */,
 				C94E65611F17E13A007A19CF /* Tap_3.sks in Resources */,
-				C9998EC41F1EAFF5007D41DB /* Float_6.sks in Resources */,
+				C9998EC41F1EAFF5007D41DB /* Float_7.sks in Resources */,
 				C9D9C4F31F13DF41001F1C50 /* LaunchScreen.storyboard in Resources */,
 				C9D9C4E71F13DF41001F1C50 /* Actions.sks in Resources */,
 			);

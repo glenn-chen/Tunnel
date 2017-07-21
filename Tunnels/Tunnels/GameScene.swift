@@ -32,6 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var accelFactor: CGFloat = 0
     var fallSpeed: CGFloat = 0.1
     
+    var cloak: SKSpriteNode!
     var goal: SKSpriteNode!
     var restartButton: MSButtonNode!
     var cameraNode:SKCameraNode!
@@ -76,10 +77,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cameraNode = childNode(withName: "cameraNode") as! SKCameraNode
         self.camera = cameraNode
         
-    /*    if controlState == .position {
-            velocityY = 0
-        }*/
-        
         currentGameState = .active
         
     //    goal = childNode(withName: "goal") as! SKSpriteNode
@@ -100,6 +97,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Get references to the physics body parent nodes */
         let nodeA = contactA.node!
         let nodeB = contactB.node!
+        
+        if nodeA.name == "cloak" || nodeB.name == "cloak" {
+            hero.isHidden = !hero.isHidden
+            return
+        }
         
         if nodeA.name == "goal" || nodeB.name == "goal" {
             currentGameState = .transition
@@ -170,6 +172,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
         
         if currentGameState == .dead || currentGameState == .transition {
+            hero.isHidden = false
             return
         }
 
@@ -264,12 +267,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case "Tap_6":
                 velocityX = 2.5
                 velocityY = 2.5
+            case "Tap_7":
+                velocityX = 2.5
+                velocityY = 2.5
+                cloak = childNode(withName: "cloak") as! SKSpriteNode
             default:
                 velocityX = 2
                 velocityY = 1.3
             }
             controlState = .tap
-            self.physicsWorld.gravity.dy = 0
         }
         else if currentLevel.indexOf("P") == 0 {
             //position
@@ -281,18 +287,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             velocityY = 0
             controlState = .position
-            self.physicsWorld.gravity.dy = 0
         }
         else if currentLevel.indexOf("F") == 0 {
             //float
             switch currentLevel {
-            case "Float_6":
+            case "Float_7":
                 velocityX = 3.5
                 velocityY = 0
-            case "Float_7":
+            case "Float_8":
                 velocityX = 4
                 velocityY = 0
-            case "Float_8":
+            case "Float_9":
                 velocityX = 0
                 velocityY = 4
             default:
@@ -300,7 +305,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 velocityY = 0
             }
             controlState = .float
-            self.physicsWorld.gravity.dy = 0
         }
         else if currentLevel.indexOf("G") == 0 {
             //swipe
@@ -311,7 +315,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 break;
             }
             controlState = .gravity
-            self.physicsWorld.gravity.dy = 0
             
         }
         
