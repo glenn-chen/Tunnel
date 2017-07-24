@@ -23,24 +23,42 @@ class MainMenu: SKScene {
         /* Set UI connections */
         positionButton = self.childNode(withName: "positionButton") as! MSButtonNode
         positionButton.selectedHandler = {
-            self.loadGame(level: "PositionTutorial")
+            self.loadSelection(mode: "Position")
         }
         
         tapButton = self.childNode(withName: "tapButton") as! MSButtonNode
         tapButton.selectedHandler = {
-            self.loadGame(level: "TapTutorial")
+            self.loadSelection(mode: "Tap")
         }
         
         floatButton = self.childNode(withName: "floatButton") as! MSButtonNode
         floatButton.selectedHandler = {
-            self.loadGame(level: "FloatTutorial")
+            self.loadSelection(mode: "Float")
         }
         
         gravityButton = self.childNode(withName: "gravityButton") as! MSButtonNode
         gravityButton.selectedHandler = {
-            self.loadGame(level: "GravityTutorial")
+            self.loadSelection(mode: "Gravity")
         }
         
+    }
+    
+    func loadSelection(mode: String) {
+        if let view = self.view as! SKView? {
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = LevelSelection(fileNamed: "\(mode)Selection") {
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+                // Present the scene
+                view.presentScene(scene)
+            }
+            
+            view.ignoresSiblingOrder = true
+            view.showsPhysics = false
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
     }
     
     func loadGame(level: String) {

@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var cloak: SKSpriteNode!
     var goal: SKSpriteNode!
-    var restartButton: MSButtonNode!
+    var homeButton: MSButtonNode!
     var cameraNode:SKCameraNode!
     
     class func loadGameScene(level: String) -> GameScene? {
@@ -45,23 +45,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         scene.currentLevel = level
         scene.setNextLevel()
-        
-      /* if level == "PositionTutorial" {
-            scene.controlState = .position
-            scene.velocityX = 2
-            scene.velocityY = 0
-        }
-        else if level == "TapTutorial" {
-            scene.controlState = .tap
-            scene.velocityX = 2
-            scene.velocityY = 1.3
-        }
-        else {
-            scene.controlState = .float
-            scene.velocityY = 0
-            scene.velocityX = 3
-        }*/
-        
         scene.setSettings()
         
         return scene
@@ -76,6 +59,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         cameraNode = childNode(withName: "cameraNode") as! SKCameraNode
         self.camera = cameraNode
+        
+        homeButton = childNode(withName: "//homeButton") as! MSButtonNode
+        homeButton.selectedHandler = {
+            if let view = self.view as! SKView? {
+                // Load the SKScene from 'GameScene.sks'
+                if let scene = MainMenu(fileNamed: "MainMenu") {
+                    // Set the scale mode to scale to fit the window
+                    scene.scaleMode = .aspectFill
+                    
+                    // Present the scene
+                    view.presentScene(scene)
+                }
+                
+                view.ignoresSiblingOrder = true
+                view.showsPhysics = false
+                view.showsFPS = true
+                view.showsNodeCount = true
+            }
+        }
+        homeButton.state = .MSButtonNodeStateHidden
         
         currentGameState = .active
         
@@ -131,7 +134,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
  
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if currentGameState == .dead {
-            print("I'm dead in \(currentLevel)")
             loadLevel(currentLevel)
             return
         }
@@ -193,6 +195,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
         
         if currentGameState == .dead || currentGameState == .transition {
+            homeButton.state = .MSButtonNodeStateActive
             hero.isHidden = false
             return
         }
