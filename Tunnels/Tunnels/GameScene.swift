@@ -79,6 +79,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         homeButton.state = .MSButtonNodeStateHidden
+        homeButton.position = CGPoint(x: -241, y: 140)
+        homeButton.xScale = 0.7
+        homeButton.yScale = 0.7
         
         currentGameState = .active
         
@@ -92,7 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
+
         /* Get references to bodies involved in collision */
         let contactA = contact.bodyA
         let contactB = contact.bodyB
@@ -291,10 +294,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case "Tap_6":
                 velocityX = 2.5
                 velocityY = 2.5
-            case "Tap_7":
+            case "Tap_7", "Tap_8":
                 velocityX = 2.5
                 velocityY = 2.5
-                cloak = childNode(withName: "cloak") as! SKSpriteNode
+           //     cloak = childNode(withName: "cloak") as! SKSpriteNode
             default:
                 velocityX = 2
                 velocityY = 1.3
@@ -315,15 +318,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if currentLevel.indexOf("F") == 0 {
             //float
             switch currentLevel {
-            case "Float_7":
+            case "Float_7", "Float_8":
                 velocityX = 3.5
-                velocityY = 0
-            case "Float_8":
-                velocityX = 4
                 velocityY = 0
             case "Float_9":
                 velocityX = 0
-                velocityY = 4
+                velocityY = 3.5
+            case "Float_10":
+                velocityX = 0
+                velocityY = 3.75
             default:
                 velocityX = 3
                 velocityY = 0
