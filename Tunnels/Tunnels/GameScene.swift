@@ -51,9 +51,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        print("beginning " + currentLevel)
-        
         hero = self.childNode(withName: "//hero") as! SKReferenceNode
+        hero.zPosition = 3
         
         physicsWorld.contactDelegate = self
         
@@ -82,6 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         homeButton.position = CGPoint(x: -241, y: 140)
         homeButton.xScale = 0.7
         homeButton.yScale = 0.7
+        homeButton.zPosition = 4
         
         currentGameState = .active
         
@@ -285,10 +285,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if currentLevel.indexOf("T") == 0 {
             //tap
             switch currentLevel {
-            case "TapTutorial", "Tap_1", "Tap_2", "Tap_3":
-                velocityX = 2
-                velocityY = 1.3
-            case "Tap_4", "Tap_5":
+            case "Tap_Tutorial", "Tap_1", "Tap_2":
+                velocityX = 1.5
+                velocityY = 1.5
+            case "Tap_3", "Tap_4", "Tap_5":
                 velocityX = 2
                 velocityY = 2
             case "Tap_6":
@@ -300,7 +300,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            //     cloak = childNode(withName: "cloak") as! SKSpriteNode
             default:
                 velocityX = 2
-                velocityY = 1.3
+                velocityY = 2
             }
             controlState = .tap
         }

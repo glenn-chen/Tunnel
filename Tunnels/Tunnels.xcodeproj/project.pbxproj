@@ -23,6 +23,7 @@
 		C94E65631F17EDA2007A19CF /* Tap_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C94E65621F17EDA2007A19CF /* Tap_2.sks */; };
 		C94E65651F17FA0E007A19CF /* Tap_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C94E65641F17FA0E007A19CF /* Tap_4.sks */; };
 		C94E65671F181C07007A19CF /* Tap_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C94E65661F181C07007A19CF /* Tap_5.sks */; };
+		C95959971F27BD1A007DC4BF /* Gravity_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C95959961F27BD1A007DC4BF /* Gravity_7.sks */; };
 		C963BD791F16957B00F19656 /* Levels.txt in Resources */ = {isa = PBXBuildFile; fileRef = C963BD781F16957B00F19656 /* Levels.txt */; };
 		C98179971F192853007C38CF /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98179961F192853007C38CF /* MainMenu.swift */; };
 		C981799B1F1941FB007C38CF /* Marker.sks in Resources */ = {isa = PBXBuildFile; fileRef = C981799A1F1941FB007C38CF /* Marker.sks */; };
@@ -42,7 +43,6 @@
 		C9D65AE91F157D2C00BDD4CE /* PositionTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D65AE81F157D2C00BDD4CE /* PositionTutorial.sks */; };
 		C9D65AEB1F158F9C00BDD4CE /* Position_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D65AEA1F158F9C00BDD4CE /* Position_1.sks */; };
 		C9D9C4E31F13DF41001F1C50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D9C4E21F13DF41001F1C50 /* AppDelegate.swift */; };
-		C9D9C4E51F13DF41001F1C50 /* PositionTester.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C4E41F13DF41001F1C50 /* PositionTester.sks */; };
 		C9D9C4E71F13DF41001F1C50 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C4E61F13DF41001F1C50 /* Actions.sks */; };
 		C9D9C4E91F13DF41001F1C50 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D9C4E81F13DF41001F1C50 /* GameScene.swift */; };
 		C9D9C4EB1F13DF41001F1C50 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D9C4EA1F13DF41001F1C50 /* GameViewController.swift */; };
@@ -53,9 +53,7 @@
 		C9D9C5091F13DF41001F1C50 /* TunnelsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D9C5081F13DF41001F1C50 /* TunnelsUITests.swift */; };
 		C9D9C5171F13DF9E001F1C50 /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D9C5161F13DF9E001F1C50 /* MSButtonNode.swift */; };
 		C9D9C5191F13EC9B001F1C50 /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C5181F13EC9B001F1C50 /* MainMenu.sks */; };
-		C9D9C51B1F1425C1001F1C50 /* TapTester.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C51A1F1425C1001F1C50 /* TapTester.sks */; };
 		C9D9C51D1F14269D001F1C50 /* Hero.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C51C1F14269D001F1C50 /* Hero.sks */; };
-		C9D9C51F1F143AA7001F1C50 /* AccelTester.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D9C51E1F143AA7001F1C50 /* AccelTester.sks */; };
 		C9DEB3AE1F2112DA00BAD3AD /* Gravity_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9DEB3AD1F2112DA00BAD3AD /* Gravity_1.sks */; };
 		C9E3C3261F16D4E00049338F /* Position_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E3C3251F16D4E00049338F /* Position_3.sks */; };
 		C9E3C3281F17D4640049338F /* TapTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E3C3271F17D4640049338F /* TapTutorial.sks */; };
@@ -103,6 +101,7 @@
 		C94E65621F17EDA2007A19CF /* Tap_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_2.sks; sourceTree = "<group>"; };
 		C94E65641F17FA0E007A19CF /* Tap_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_4.sks; sourceTree = "<group>"; };
 		C94E65661F181C07007A19CF /* Tap_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_5.sks; sourceTree = "<group>"; };
+		C95959961F27BD1A007DC4BF /* Gravity_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_7.sks; sourceTree = "<group>"; };
 		C963BD781F16957B00F19656 /* Levels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Levels.txt; sourceTree = "<group>"; };
 		C98179961F192853007C38CF /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		C981799A1F1941FB007C38CF /* Marker.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Marker.sks; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		C9D65AEA1F158F9C00BDD4CE /* Position_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_1.sks; sourceTree = "<group>"; };
 		C9D9C4DF1F13DF41001F1C50 /* Tunnels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tunnels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D9C4E21F13DF41001F1C50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9D9C4E41F13DF41001F1C50 /* PositionTester.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PositionTester.sks; sourceTree = "<group>"; };
 		C9D9C4E61F13DF41001F1C50 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		C9D9C4E81F13DF41001F1C50 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C9D9C4EA1F13DF41001F1C50 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -139,9 +137,7 @@
 		C9D9C50A1F13DF41001F1C50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9D9C5161F13DF9E001F1C50 /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		C9D9C5181F13EC9B001F1C50 /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
-		C9D9C51A1F1425C1001F1C50 /* TapTester.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TapTester.sks; sourceTree = "<group>"; };
 		C9D9C51C1F14269D001F1C50 /* Hero.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Hero.sks; sourceTree = "<group>"; };
-		C9D9C51E1F143AA7001F1C50 /* AccelTester.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AccelTester.sks; sourceTree = "<group>"; };
 		C9DEB3AD1F2112DA00BAD3AD /* Gravity_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_1.sks; sourceTree = "<group>"; };
 		C9E3C3251F16D4E00049338F /* Position_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_3.sks; sourceTree = "<group>"; };
 		C9E3C3271F17D4640049338F /* TapTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TapTutorial.sks; sourceTree = "<group>"; };
@@ -190,6 +186,7 @@
 				C9EE415A1F21220E00D9FBB3 /* Gravity_4.sks */,
 				C9FB7BE31F2259E700252728 /* Gravity_5.sks */,
 				C931AD981F229DD900B5D87E /* Gravity_6.sks */,
+				C95959961F27BD1A007DC4BF /* Gravity_7.sks */,
 			);
 			name = "Gravity Levels";
 			sourceTree = "<group>";
@@ -289,9 +286,6 @@
 				C9D9C51C1F14269D001F1C50 /* Hero.sks */,
 				C947D7B51F1D6C8100ED0C97 /* Brick.sks */,
 				C9D9C4E21F13DF41001F1C50 /* AppDelegate.swift */,
-				C9D9C51E1F143AA7001F1C50 /* AccelTester.sks */,
-				C9D9C51A1F1425C1001F1C50 /* TapTester.sks */,
-				C9D9C4E41F13DF41001F1C50 /* PositionTester.sks */,
 				C9D9C4E61F13DF41001F1C50 /* Actions.sks */,
 				C9D9C4E81F13DF41001F1C50 /* GameScene.swift */,
 				C9D9C4EA1F13DF41001F1C50 /* GameViewController.swift */,
@@ -449,17 +443,16 @@
 				C90CEB991F1D528900DFE10A /* Float_4.sks in Resources */,
 				C92756B51F26B07B005E2EC7 /* Float_10.sks in Resources */,
 				C9E3C3261F16D4E00049338F /* Position_3.sks in Resources */,
+				C95959971F27BD1A007DC4BF /* Gravity_7.sks in Resources */,
 				C98394A21F2659CE002CD2DC /* TapSelection.sks in Resources */,
 				C90CEB951F1D281A00DFE10A /* Float_1.sks in Resources */,
 				C9FB7BE61F226C3F00252728 /* Tap_8.sks in Resources */,
 				C9EE415B1F21220E00D9FBB3 /* Gravity_4.sks in Resources */,
 				C9998EC81F1EC9AC007D41DB /* Float_9.sks in Resources */,
 				C9D9C5191F13EC9B001F1C50 /* MainMenu.sks in Resources */,
-				C9D9C4E51F13DF41001F1C50 /* PositionTester.sks in Resources */,
 				C98394A41F265A4F002CD2DC /* FloatSelection.sks in Resources */,
 				C9D9C4F01F13DF41001F1C50 /* Assets.xcassets in Resources */,
 				C947D7B41F1D667500ED0C97 /* Float_5.sks in Resources */,
-				C9D9C51F1F143AA7001F1C50 /* AccelTester.sks in Resources */,
 				C947D7B81F1D755900ED0C97 /* Tap_1.sks in Resources */,
 				C9998ECA1F1ED174007D41DB /* Tap_6.sks in Resources */,
 				C9D65AEB1F158F9C00BDD4CE /* Position_1.sks in Resources */,
@@ -472,7 +465,6 @@
 				C931AD9B1F22ACA700B5D87E /* PositionSelection.sks in Resources */,
 				C931AD991F229DD900B5D87E /* Gravity_6.sks in Resources */,
 				C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */,
-				C9D9C51B1F1425C1001F1C50 /* TapTester.sks in Resources */,
 				C90CEB931F1D171300DFE10A /* FloatTutorial.sks in Resources */,
 				C9998EBE1F1E7458007D41DB /* Position_6.sks in Resources */,
 				C9998EC01F1E8DC3007D41DB /* Position_7.sks in Resources */,
