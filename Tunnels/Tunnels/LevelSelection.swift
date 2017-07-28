@@ -21,21 +21,7 @@ class LevelSelection: SKScene {
         
         backButton = childNode(withName: "backButton") as! MSButtonNode
         backButton.selectedHandler = {
-            if let view = self.view as! SKView? {
-                // Load the SKScene from 'GameScene.sks'
-                if let scene = MainMenu(fileNamed: "MainMenu") {
-                    // Set the scale mode to scale to fit the window
-                    scene.scaleMode = .aspectFill
-                    
-                    // Present the scene
-                    view.presentScene(scene)
-                }
-                
-                view.ignoresSiblingOrder = true
-                view.showsPhysics = false
-                view.showsFPS = true
-                view.showsNodeCount = true
-            }
+            self.loadModeSelection()
         }
         
         levelButtons = Array(repeating: nil, count: 11)
@@ -44,6 +30,24 @@ class LevelSelection: SKScene {
             levelButtons[index]?.selectedHandler = {
                 self.loadGame(level: "\(levelType!)_\(index)")
             }
+        }
+    }
+    
+    func loadModeSelection() {
+        if let view = self.view as! SKView? {
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = ModeSelection(fileNamed: "ModeSelection") {
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+                // Present the scene
+                view.presentScene(scene)
+            }
+            
+            view.ignoresSiblingOrder = true
+            view.showsPhysics = false
+            view.showsFPS = true
+            view.showsNodeCount = true
         }
     }
     

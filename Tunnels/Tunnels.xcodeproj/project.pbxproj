@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9090F3F1F2A7D550091B02B /* Position_10.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9090F3E1F2A7D550091B02B /* Position_10.sks */; };
+		C9090F411F2A9CCE0091B02B /* Position_9.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9090F401F2A9CCE0091B02B /* Position_9.sks */; };
 		C90CEB931F1D171300DFE10A /* FloatTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB921F1D171300DFE10A /* FloatTutorial.sks */; };
 		C90CEB951F1D281A00DFE10A /* Float_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB941F1D281A00DFE10A /* Float_1.sks */; };
 		C90CEB971F1D35E300DFE10A /* Float_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB961F1D35E300DFE10A /* Float_3.sks */; };
@@ -14,7 +16,7 @@
 		C92143D41F200D6100824CE1 /* GravityTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92143D31F200D6100824CE1 /* GravityTutorial.sks */; };
 		C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92143D51F20299E00824CE1 /* Gravity_2.sks */; };
 		C92756B51F26B07B005E2EC7 /* Float_10.sks in Resources */ = {isa = PBXBuildFile; fileRef = C92756B41F26B07B005E2EC7 /* Float_10.sks */; };
-		C931AD991F229DD900B5D87E /* Gravity_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C931AD981F229DD900B5D87E /* Gravity_6.sks */; };
+		C931AD991F229DD900B5D87E /* Gravity_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C931AD981F229DD900B5D87E /* Gravity_7.sks */; };
 		C931AD9B1F22ACA700B5D87E /* PositionSelection.sks in Resources */ = {isa = PBXBuildFile; fileRef = C931AD9A1F22ACA700B5D87E /* PositionSelection.sks */; };
 		C947D7B41F1D667500ED0C97 /* Float_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B31F1D667500ED0C97 /* Float_5.sks */; };
 		C947D7B61F1D6C8100ED0C97 /* Brick.sks in Resources */ = {isa = PBXBuildFile; fileRef = C947D7B51F1D6C8100ED0C97 /* Brick.sks */; };
@@ -23,7 +25,7 @@
 		C94E65631F17EDA2007A19CF /* Tap_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C94E65621F17EDA2007A19CF /* Tap_2.sks */; };
 		C94E65651F17FA0E007A19CF /* Tap_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C94E65641F17FA0E007A19CF /* Tap_4.sks */; };
 		C94E65671F181C07007A19CF /* Tap_5.sks in Resources */ = {isa = PBXBuildFile; fileRef = C94E65661F181C07007A19CF /* Tap_5.sks */; };
-		C95959971F27BD1A007DC4BF /* Gravity_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C95959961F27BD1A007DC4BF /* Gravity_7.sks */; };
+		C95959971F27BD1A007DC4BF /* Gravity_8.sks in Resources */ = {isa = PBXBuildFile; fileRef = C95959961F27BD1A007DC4BF /* Gravity_8.sks */; };
 		C963BD791F16957B00F19656 /* Levels.txt in Resources */ = {isa = PBXBuildFile; fileRef = C963BD781F16957B00F19656 /* Levels.txt */; };
 		C98179971F192853007C38CF /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98179961F192853007C38CF /* MainMenu.swift */; };
 		C981799B1F1941FB007C38CF /* Marker.sks in Resources */ = {isa = PBXBuildFile; fileRef = C981799A1F1941FB007C38CF /* Marker.sks */; };
@@ -57,6 +59,9 @@
 		C9DEB3AE1F2112DA00BAD3AD /* Gravity_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9DEB3AD1F2112DA00BAD3AD /* Gravity_1.sks */; };
 		C9E3C3261F16D4E00049338F /* Position_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E3C3251F16D4E00049338F /* Position_3.sks */; };
 		C9E3C3281F17D4640049338F /* TapTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E3C3271F17D4640049338F /* TapTutorial.sks */; };
+		C9E421EE1F2BA5A6009AFAFE /* ModeSelection.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E421ED1F2BA5A6009AFAFE /* ModeSelection.sks */; };
+		C9E421F01F2BA64D009AFAFE /* ModeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E421EF1F2BA64D009AFAFE /* ModeSelection.swift */; };
+		C9E421F21F2BB4A6009AFAFE /* Gravity_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E421F11F2BB4A6009AFAFE /* Gravity_6.sks */; };
 		C9EE41591F21176900D9FBB3 /* Gravity_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE41581F21176900D9FBB3 /* Gravity_3.sks */; };
 		C9EE415B1F21220E00D9FBB3 /* Gravity_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE415A1F21220E00D9FBB3 /* Gravity_4.sks */; };
 		C9EE415D1F2156F900D9FBB3 /* Tap_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE415C1F2156F900D9FBB3 /* Tap_7.sks */; };
@@ -85,6 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9090F3E1F2A7D550091B02B /* Position_10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_10.sks; sourceTree = "<group>"; };
+		C9090F401F2A9CCE0091B02B /* Position_9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_9.sks; sourceTree = "<group>"; };
 		C90CEB921F1D171300DFE10A /* FloatTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FloatTutorial.sks; sourceTree = "<group>"; };
 		C90CEB941F1D281A00DFE10A /* Float_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_1.sks; sourceTree = "<group>"; };
 		C90CEB961F1D35E300DFE10A /* Float_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_3.sks; sourceTree = "<group>"; };
@@ -92,7 +99,7 @@
 		C92143D31F200D6100824CE1 /* GravityTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GravityTutorial.sks; sourceTree = "<group>"; };
 		C92143D51F20299E00824CE1 /* Gravity_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_2.sks; sourceTree = "<group>"; };
 		C92756B41F26B07B005E2EC7 /* Float_10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_10.sks; sourceTree = "<group>"; };
-		C931AD981F229DD900B5D87E /* Gravity_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_6.sks; sourceTree = "<group>"; };
+		C931AD981F229DD900B5D87E /* Gravity_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_7.sks; sourceTree = "<group>"; };
 		C931AD9A1F22ACA700B5D87E /* PositionSelection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PositionSelection.sks; sourceTree = "<group>"; };
 		C947D7B31F1D667500ED0C97 /* Float_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_5.sks; sourceTree = "<group>"; };
 		C947D7B51F1D6C8100ED0C97 /* Brick.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Brick.sks; sourceTree = "<group>"; };
@@ -101,7 +108,7 @@
 		C94E65621F17EDA2007A19CF /* Tap_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_2.sks; sourceTree = "<group>"; };
 		C94E65641F17FA0E007A19CF /* Tap_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_4.sks; sourceTree = "<group>"; };
 		C94E65661F181C07007A19CF /* Tap_5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_5.sks; sourceTree = "<group>"; };
-		C95959961F27BD1A007DC4BF /* Gravity_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_7.sks; sourceTree = "<group>"; };
+		C95959961F27BD1A007DC4BF /* Gravity_8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_8.sks; sourceTree = "<group>"; };
 		C963BD781F16957B00F19656 /* Levels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Levels.txt; sourceTree = "<group>"; };
 		C98179961F192853007C38CF /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		C981799A1F1941FB007C38CF /* Marker.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Marker.sks; sourceTree = "<group>"; };
@@ -141,6 +148,9 @@
 		C9DEB3AD1F2112DA00BAD3AD /* Gravity_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_1.sks; sourceTree = "<group>"; };
 		C9E3C3251F16D4E00049338F /* Position_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_3.sks; sourceTree = "<group>"; };
 		C9E3C3271F17D4640049338F /* TapTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TapTutorial.sks; sourceTree = "<group>"; };
+		C9E421ED1F2BA5A6009AFAFE /* ModeSelection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ModeSelection.sks; sourceTree = "<group>"; };
+		C9E421EF1F2BA64D009AFAFE /* ModeSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelection.swift; sourceTree = "<group>"; };
+		C9E421F11F2BB4A6009AFAFE /* Gravity_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_6.sks; sourceTree = "<group>"; };
 		C9EE41581F21176900D9FBB3 /* Gravity_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_3.sks; sourceTree = "<group>"; };
 		C9EE415A1F21220E00D9FBB3 /* Gravity_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_4.sks; sourceTree = "<group>"; };
 		C9EE415C1F2156F900D9FBB3 /* Tap_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_7.sks; sourceTree = "<group>"; };
@@ -185,8 +195,9 @@
 				C9EE41581F21176900D9FBB3 /* Gravity_3.sks */,
 				C9EE415A1F21220E00D9FBB3 /* Gravity_4.sks */,
 				C9FB7BE31F2259E700252728 /* Gravity_5.sks */,
-				C931AD981F229DD900B5D87E /* Gravity_6.sks */,
-				C95959961F27BD1A007DC4BF /* Gravity_7.sks */,
+				C9E421F11F2BB4A6009AFAFE /* Gravity_6.sks */,
+				C931AD981F229DD900B5D87E /* Gravity_7.sks */,
+				C95959961F27BD1A007DC4BF /* Gravity_8.sks */,
 			);
 			name = "Gravity Levels";
 			sourceTree = "<group>";
@@ -214,6 +225,8 @@
 				C9998EBD1F1E7458007D41DB /* Position_6.sks */,
 				C9998EBF1F1E8DC3007D41DB /* Position_7.sks */,
 				C9998EC11F1EAF4B007D41DB /* Position_8.sks */,
+				C9090F401F2A9CCE0091B02B /* Position_9.sks */,
+				C9090F3E1F2A7D550091B02B /* Position_10.sks */,
 			);
 			name = "Position Levels";
 			sourceTree = "<group>";
@@ -283,6 +296,8 @@
 				C983949F1F265494002CD2DC /* LevelSelection.swift */,
 				C98179961F192853007C38CF /* MainMenu.swift */,
 				C9D9C5181F13EC9B001F1C50 /* MainMenu.sks */,
+				C9E421EF1F2BA64D009AFAFE /* ModeSelection.swift */,
+				C9E421ED1F2BA5A6009AFAFE /* ModeSelection.sks */,
 				C9D9C51C1F14269D001F1C50 /* Hero.sks */,
 				C947D7B51F1D6C8100ED0C97 /* Brick.sks */,
 				C9D9C4E21F13DF41001F1C50 /* AppDelegate.swift */,
@@ -435,6 +450,7 @@
 				C9D9C4EE1F13DF41001F1C50 /* Main.storyboard in Resources */,
 				C99DF4011F1692B100D59066 /* Position_2.sks in Resources */,
 				C9FB7BE41F2259E700252728 /* Gravity_5.sks in Resources */,
+				C9E421F21F2BB4A6009AFAFE /* Gravity_6.sks in Resources */,
 				C90CEB971F1D35E300DFE10A /* Float_3.sks in Resources */,
 				C981799B1F1941FB007C38CF /* Marker.sks in Resources */,
 				C9D65AE91F157D2C00BDD4CE /* PositionTutorial.sks in Resources */,
@@ -443,7 +459,7 @@
 				C90CEB991F1D528900DFE10A /* Float_4.sks in Resources */,
 				C92756B51F26B07B005E2EC7 /* Float_10.sks in Resources */,
 				C9E3C3261F16D4E00049338F /* Position_3.sks in Resources */,
-				C95959971F27BD1A007DC4BF /* Gravity_7.sks in Resources */,
+				C95959971F27BD1A007DC4BF /* Gravity_8.sks in Resources */,
 				C98394A21F2659CE002CD2DC /* TapSelection.sks in Resources */,
 				C90CEB951F1D281A00DFE10A /* Float_1.sks in Resources */,
 				C9FB7BE61F226C3F00252728 /* Tap_8.sks in Resources */,
@@ -460,10 +476,12 @@
 				C98394A61F265A7B002CD2DC /* GravitySelection.sks in Resources */,
 				C9EE41591F21176900D9FBB3 /* Gravity_3.sks in Resources */,
 				C94E65631F17EDA2007A19CF /* Tap_2.sks in Resources */,
+				C9090F3F1F2A7D550091B02B /* Position_10.sks in Resources */,
+				C9E421EE1F2BA5A6009AFAFE /* ModeSelection.sks in Resources */,
 				C9F730751F16C17B008EEFEE /* Position_5.sks in Resources */,
 				C9F332D81F1D860400AB7E7E /* Float_6.sks in Resources */,
 				C931AD9B1F22ACA700B5D87E /* PositionSelection.sks in Resources */,
-				C931AD991F229DD900B5D87E /* Gravity_6.sks in Resources */,
+				C931AD991F229DD900B5D87E /* Gravity_7.sks in Resources */,
 				C92143D61F20299E00824CE1 /* Gravity_2.sks in Resources */,
 				C90CEB931F1D171300DFE10A /* FloatTutorial.sks in Resources */,
 				C9998EBE1F1E7458007D41DB /* Position_6.sks in Resources */,
@@ -478,6 +496,7 @@
 				C9998EC41F1EAFF5007D41DB /* Float_7.sks in Resources */,
 				C9D9C4F31F13DF41001F1C50 /* LaunchScreen.storyboard in Resources */,
 				C9D9C4E71F13DF41001F1C50 /* Actions.sks in Resources */,
+				C9090F411F2A9CCE0091B02B /* Position_9.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +527,7 @@
 				C98394A01F265494002CD2DC /* LevelSelection.swift in Sources */,
 				C9D9C4E31F13DF41001F1C50 /* AppDelegate.swift in Sources */,
 				C9D9C5171F13DF9E001F1C50 /* MSButtonNode.swift in Sources */,
+				C9E421F01F2BA64D009AFAFE /* ModeSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

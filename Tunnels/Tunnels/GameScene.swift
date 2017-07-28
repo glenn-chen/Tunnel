@@ -12,7 +12,7 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     enum GameState {
-        case active, dead, transition
+        case active, dead, transition, end
     }
     var currentGameState: GameState!
     
@@ -78,14 +78,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         homeButton.state = .MSButtonNodeStateHidden
-        homeButton.position = CGPoint(x: -241, y: 140)
-        homeButton.xScale = 0.7
-        homeButton.yScale = 0.7
+        homeButton.position = CGPoint(x: -236, y: 133)
+        homeButton.xScale = 0.9
+        homeButton.yScale = 0.9
         homeButton.zPosition = 4
         
         currentGameState = .active
-        
-    //    goal = childNode(withName: "goal") as! SKSpriteNode
         
         setSettings()
         
@@ -109,24 +107,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if nodeA.name == "goal" || nodeB.name == "goal" {
             currentGameState = .transition
-            return
         }
         else if nodeA.name == "finalGoal" || nodeB.name == "finalGoal" {
-            if let view = self.view as! SKView? {
-                // Load the SKScene from 'GameScene.sks'
-                if let scene = MainMenu(fileNamed: "MainMenu") {
-                    // Set the scale mode to scale to fit the window
-                    scene.scaleMode = .aspectFill
-                    
-                    // Present the scene
-                    view.presentScene(scene)
-                }
-                
-                view.ignoresSiblingOrder = true
-                view.showsPhysics = false
-                view.showsFPS = true
-                view.showsNodeCount = true
-            }
+            //self.loadMainMenu()
+            currentGameState = .end
         }
         else if nodeA.name == "hero" || nodeB.name == "hero" { // contacts with goal and cloak will have already been detected
             currentGameState = .dead
@@ -141,14 +125,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         else if currentGameState == .transition {
-         /*   do {
-                try loadLevel(nextLevel)
-            } catch () {
-                
-             
-                }
-            }*/
             loadLevel(nextLevel)
+            return
+        }
+        else if currentGameState == .end {
+            loadMainMenu()
             return
         }
         
@@ -171,7 +152,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if currentGameState == .dead || controlState != .position {
+        if controlState != .position || currentGameState != .active  {
             return
         }
         
@@ -197,7 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Called before each frame is rendered
         
-        if currentGameState == .dead || currentGameState == .transition {
+        if currentGameState != .active {
             homeButton.state = .MSButtonNodeStateActive
             hero.isHidden = false
             return
@@ -209,14 +190,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if controlState == .gravity {
             velocityY -= fallSpeed
         }
-        
-    /*    if controlState == .tap {
-            hero.position.y += velocityY * reversalFactor
-        }*/
-   /*     else {
-            velocityY += accelFactor
-            hero.position.y += velocityY * reversalFactor
-        } */
         
         /* Change camera position */
         if controlState == .float {
@@ -297,7 +270,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case "Tap_7", "Tap_8":
                 velocityX = 2.5
                 velocityY = 2.5
-           //     cloak = childNode(withName: "cloak") as! SKSpriteNode
             default:
                 velocityX = 2
                 velocityY = 2
@@ -307,8 +279,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if currentLevel.indexOf("P") == 0 {
             //position
             switch currentLevel {
-            case "Position_8":
-                velocityX = 2.5
+            case "Position_8", "Position_9", "Position_10":
+                velocityX = 2.25
             default:
                 velocityX = 2
             }
@@ -336,6 +308,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if currentLevel.indexOf("G") == 0 {
             //swipe
             switch currentLevel {
+            case "Gravity_6":
+                velocityY = 2 // start off with bigger boost
             default:
                 velocityX = 3
                 velocityY = 1
@@ -345,6 +319,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
+    }
+    
+    func loadMainMenu() {
+        if let view = self.view as! SKView? {
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = MainMenu(fileNamed: "MainMenu") {
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+                // Present the scene
+                view.presentScene(scene)
+            }
+            
+            view.ignoresSiblingOrder = true
+            view.showsPhysics = false
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
     }
 }
 

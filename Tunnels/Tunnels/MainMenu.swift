@@ -12,41 +12,24 @@ import SpriteKit
 class MainMenu: SKScene {
     
     /* UI Connections */
-    var positionButton: MSButtonNode!
-    var tapButton: MSButtonNode!
-    var floatButton: MSButtonNode!
-    var gravityButton: MSButtonNode!
+    var playButton: MSButtonNode!
+    var settingsButton: MSButtonNode!
     
     override func didMove(to view: SKView) {
         /* Setup your scene here */
         
         /* Set UI connections */
-        positionButton = self.childNode(withName: "positionButton") as! MSButtonNode
-        positionButton.selectedHandler = {
-            self.loadSelection(mode: "Position")
-        }
-        
-        tapButton = self.childNode(withName: "tapButton") as! MSButtonNode
-        tapButton.selectedHandler = {
-            self.loadSelection(mode: "Tap")
-        }
-        
-        floatButton = self.childNode(withName: "floatButton") as! MSButtonNode
-        floatButton.selectedHandler = {
-            self.loadSelection(mode: "Float")
-        }
-        
-        gravityButton = self.childNode(withName: "gravityButton") as! MSButtonNode
-        gravityButton.selectedHandler = {
-            self.loadSelection(mode: "Gravity")
+        playButton = self.childNode(withName: "playButton") as! MSButtonNode
+        playButton.selectedHandler = {
+            self.loadModeSelection()
         }
         
     }
     
-    func loadSelection(mode: String) {
+    func loadModeSelection() {
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = LevelSelection(fileNamed: "\(mode)Selection") {
+            if let scene = ModeSelection(fileNamed: "ModeSelection") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 
@@ -61,7 +44,7 @@ class MainMenu: SKScene {
         }
     }
     
-    func loadGame(level: String) {
+ /*   func loadGame(level: String) {
         /* 1) Grab reference to our SpriteKit view */
         guard let skView = self.view as SKView! else {
             print("Could not get Skview")
@@ -84,5 +67,5 @@ class MainMenu: SKScene {
         
         /* 4) Start game scene */
         skView.presentScene(scene)
-    }
+    }*/
 }
