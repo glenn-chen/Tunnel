@@ -25,7 +25,18 @@ class LevelSelection: SKScene {
         }
         
         levelButtons = Array(repeating: nil, count: 11)
-        for index in 1...10 {
+      /*  for index in 1...10 {
+            levelButtons[index] = childNode(withName: "button\(index)") as! MSButtonNode
+            levelButtons[index]?.selectedHandler = {
+                self.loadGame(level: "\(levelType!)_\(index)")
+            }
+        }*/
+        
+        levelButtons[1] = childNode(withName: "button1") as! MSButtonNode
+        levelButtons[1]?.selectedHandler = {
+            self.loadGame(level: "\(levelType!)Tutorial")
+        }
+        for index in 2...10 {
             levelButtons[index] = childNode(withName: "button\(index)") as! MSButtonNode
             levelButtons[index]?.selectedHandler = {
                 self.loadGame(level: "\(levelType!)_\(index)")

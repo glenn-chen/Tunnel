@@ -264,10 +264,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case "Tap_3", "Tap_4", "Tap_5":
                 velocityX = 2
                 velocityY = 2
-            case "Tap_6":
-                velocityX = 2.5
-                velocityY = 2.5
-            case "Tap_7", "Tap_8":
+            case "Tap_6", "Tap_7", "Tap_8", "Tap_9":
                 velocityX = 2.5
                 velocityY = 2.5
             default:
