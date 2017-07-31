@@ -288,12 +288,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //float
             switch currentLevel {
             case "Float_7", "Float_8":
-                velocityX = 3.5
+                velocityX = 3.25
                 velocityY = 0
             case "Float_9":
                 velocityX = 0
+                velocityY = 3.25
+            case "Float_10", "Float_11":
+                velocityX = 0
                 velocityY = 3.5
-            case "Float_10":
+            case "Float_12":
                 velocityX = 0
                 velocityY = 3.75
             default:
@@ -305,8 +308,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if currentLevel.indexOf("G") == 0 {
             //swipe
             switch currentLevel {
-            case "Gravity_6":
-                velocityY = 2 // start off with bigger boost
             default:
                 velocityX = 3
                 velocityY = 1
