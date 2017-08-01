@@ -24,6 +24,30 @@ class MainMenu: SKScene {
             self.loadModeSelection()
         }
         
+        settingsButton = self.childNode(withName: "settingsButton") as! MSButtonNode
+        settingsButton.selectedHandler = {
+            //self.loadSettingsScene()
+            self.loadSettingsScene()
+        }
+        
+    }
+    
+    func loadSettingsScene() {
+        if let view = self.view as! SKView? {
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = SettingsScene(fileNamed: "SettingsScene") {
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+                // Present the scene
+                view.presentScene(scene)
+            }
+            
+            view.ignoresSiblingOrder = true
+            view.showsPhysics = false
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
     }
     
     func loadModeSelection() {

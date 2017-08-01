@@ -24,19 +24,21 @@ class LevelSelection: SKScene {
             self.loadModeSelection()
         }
         
-        levelButtons = Array(repeating: nil, count: 11)
-      /*  for index in 1...10 {
-            levelButtons[index] = childNode(withName: "button\(index)") as! MSButtonNode
-            levelButtons[index]?.selectedHandler = {
-                self.loadGame(level: "\(levelType!)_\(index)")
-            }
-        }*/
+        levelButtons = Array(repeating: nil, count: 13)
+        
+        var numLevels: Int!
+        if levelType == "Float" {
+            numLevels = 12
+        }
+        else {
+            numLevels = 10
+        }
         
         levelButtons[1] = childNode(withName: "button1") as! MSButtonNode
         levelButtons[1]?.selectedHandler = {
             self.loadGame(level: "\(levelType!)Tutorial")
         }
-        for index in 2...10 {
+        for index in 2...numLevels {
             levelButtons[index] = childNode(withName: "button\(index)") as! MSButtonNode
             levelButtons[index]?.selectedHandler = {
                 self.loadGame(level: "\(levelType!)_\(index)")

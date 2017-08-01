@@ -21,15 +21,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //trace, flight, reverse/turn/flip
     }
     var controlState: ControlScheme = .position
-    var currentLevel: String = "a"
-    var nextLevel: String = "a"
+    var currentLevel: String = "PositionTutorial"
+    var nextLevel: String = "Position_1"
     
     var reversalFactor: CGFloat = 1
     
     var hero: SKReferenceNode!
-    var velocityY: CGFloat = 1.3
+    var velocityY: CGFloat = 2
     var velocityX: CGFloat = 2
-    var accelFactor: CGFloat = 0
     var fallSpeed: CGFloat = 0.1
     
     var cloak: SKSpriteNode!
@@ -104,6 +103,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if nodeA.name == "cloak" || nodeB.name == "cloak" {
             hero.isHidden = !hero.isHidden
+        }
+        else if nodeA.name == "switcher" || nodeB.name == "switcher" {
+            let temp = velocityX
+            velocityX = velocityY
+            velocityY = temp
         }
         else if nodeA.name == "goal" || nodeB.name == "goal" {
             currentGameState = .transition
@@ -254,11 +258,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setSettings() {
-        
+        print("settings " + currentLevel)
         if currentLevel.indexOf("T") == 0 {
             //tap
             switch currentLevel {
-            case "Tap_Tutorial", "Tap_1", "Tap_2":
+            case "TapTutorial", "Tap_1", "Tap_2":
                 velocityX = 1.5
                 velocityY = 1.5
             case "Tap_3", "Tap_4", "Tap_5":
@@ -267,6 +271,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case "Tap_6", "Tap_7", "Tap_8", "Tap_9":
                 velocityX = 2.5
                 velocityY = 2.5
+            case "Tap_10":
+                velocityX = 2.75
+                velocityY = 2.75
             default:
                 velocityX = 2
                 velocityY = 2
@@ -314,9 +321,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 break;
             }
             controlState = .gravity
-            
         }
-        
     }
     
     func loadMainMenu() {
