@@ -33,7 +33,7 @@ class MainMenu: SKScene {
     }
     
     func loadSettingsScene() {
-        if let view = self.view as! SKView? {
+        if let view = self.view {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SettingsScene(fileNamed: "SettingsScene") {
                 // Set the scale mode to scale to fit the window
@@ -51,7 +51,7 @@ class MainMenu: SKScene {
     }
     
     func loadModeSelection() {
-        if let view = self.view as! SKView? {
+        if let view = self.view {
             // Load the SKScene from 'GameScene.sks'
             if let scene = ModeSelection(fileNamed: "ModeSelection") {
                 // Set the scale mode to scale to fit the window

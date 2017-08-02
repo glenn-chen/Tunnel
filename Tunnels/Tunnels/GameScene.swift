@@ -60,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         homeButton = childNode(withName: "//homeButton") as! MSButtonNode
         homeButton.selectedHandler = {
-            if let view = self.view as! SKView? {
+            if let view = self.view {
                 // Load the SKScene from 'GameScene.sks'
                 if let scene = MainMenu(fileNamed: "MainMenu") {
                     // Set the scale mode to scale to fit the window
@@ -105,9 +105,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hero.isHidden = !hero.isHidden
         }
         else if nodeA.name == "switcher" || nodeB.name == "switcher" {
-            let temp = velocityX
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15, execute: {
+                self.reverseVelocities()
+            })
+            
+            
+     /*       let temp = velocityX
             velocityX = velocityY
-            velocityY = temp
+            velocityY = temp*/
         }
         else if nodeA.name == "goal" || nodeB.name == "goal" {
             currentGameState = .transition
@@ -122,7 +127,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //hero.texture = SKTexture(imageNamed: "player1")
     }
- 
+    
+    func reverseVelocities() {
+        print("i love you")
+        let temp = velocityX
+        velocityX = velocityY
+        velocityY = temp
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if currentGameState == .dead {
             loadLevel(currentLevel)
