@@ -20,7 +20,7 @@ class LevelSelection: SKScene {
         let levelType = levelLabel.text
         
         backButton = childNode(withName: "backButton") as! MSButtonNode
-        backButton.selectedHandler = {
+        backButton.selectedHandler = { [unowned self] in
             self.loadModeSelection()
         }
         
@@ -35,12 +35,12 @@ class LevelSelection: SKScene {
         }
         
         levelButtons[1] = childNode(withName: "button1") as! MSButtonNode
-        levelButtons[1]?.selectedHandler = {
+        levelButtons[1]?.selectedHandler = { [unowned self] in
             self.loadGame(level: "\(levelType!)Tutorial")
         }
         for index in 2...numLevels {
             levelButtons[index] = childNode(withName: "button\(index)") as! MSButtonNode
-            levelButtons[index]?.selectedHandler = {
+            levelButtons[index]?.selectedHandler = { [unowned self] in
                 self.loadGame(level: "\(levelType!)_\(index)")
             }
         }

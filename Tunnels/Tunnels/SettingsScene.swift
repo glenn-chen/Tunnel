@@ -17,7 +17,7 @@ class SettingsScene: SKScene {
     var rightButton: MSButtonNode!
     var locationLabel: SKLabelNode!
     
-    let arr = ["Lower Left", "Upper Left", "Center", "Upper Right", "Lower Right"]
+    let arr = ["Lower Left", "Upper Left", "Upper Right", "Lower Right"]
     var index = 0 {
         didSet {
             locationLabel.text = arr[index]
@@ -31,7 +31,7 @@ class SettingsScene: SKScene {
         locationLabel = childNode(withName: "locationLabel") as! SKLabelNode
         
         leftButton = childNode(withName: "leftButton") as! MSButtonNode
-        leftButton.selectedHandler = {
+        leftButton.selectedHandler = { [unowned self] in
             if self.index > 0 {
                 self.index -= 1
             }
@@ -41,7 +41,7 @@ class SettingsScene: SKScene {
         }
         
         rightButton = childNode(withName: "rightButton") as! MSButtonNode
-        rightButton.selectedHandler = {
+        rightButton.selectedHandler = { [unowned self] in
             if self.index < self.arr.count - 1 {
                 self.index += 1
             }
@@ -51,13 +51,13 @@ class SettingsScene: SKScene {
         }
         
         backButton = self.childNode(withName: "backButton") as! MSButtonNode
-        backButton.selectedHandler = {
+        backButton.selectedHandler = { [unowned self] in
             self.loadMainMenu()
         }
     }
     
     func loadMainMenu() {
-        if let view = self.view as! SKView? {
+        if let view = self.view {
             // Load the SKScene from 'GameScene.sks'
             if let scene = MainMenu(fileNamed: "MainMenu") {
                 // Set the scale mode to scale to fit the window

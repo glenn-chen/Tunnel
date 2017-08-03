@@ -20,13 +20,12 @@ class MainMenu: SKScene {
         
         /* Set UI connections */
         playButton = self.childNode(withName: "playButton") as! MSButtonNode
-        playButton.selectedHandler = {
+        playButton.selectedHandler = { [unowned self] in
             self.loadModeSelection()
         }
         
         settingsButton = self.childNode(withName: "settingsButton") as! MSButtonNode
-        settingsButton.selectedHandler = {
-            //self.loadSettingsScene()
+        settingsButton.selectedHandler = { [unowned self] in
             self.loadSettingsScene()
         }
         

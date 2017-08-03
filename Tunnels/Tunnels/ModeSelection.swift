@@ -71,37 +71,47 @@ class ModeSelection: SKScene {
         /* Animate gravity preview */
         gravityHero = childNode(withName: "gravityHero") as! SKReferenceNode
         
+        let gravityDown = SKAction.move(by: CGVector(dx: 0, dy: -6), duration: 0.22)
+        let gravityDown2 = SKAction.move(by: CGVector(dx: 0, dy: -10), duration: 0.18)
+        let gravityDown3 = SKAction.move(by: CGVector(dx: 0, dy: -16), duration: 0.2)
+        let gravityDown4 = SKAction.move(by: CGVector(dx: 0, dy: -22), duration: 0.28)
+        let gravityUp = SKAction.move(by: CGVector(dx: 0, dy: 4), duration: 0.255)
+        let gravityDown5 = SKAction.move(by: CGVector(dx: 0, dy: -4), duration: 0.255)
+        let gravityReset = SKAction.moveTo(y: -57, duration: 0.05)
+        let gravityHorizontalSequence = SKAction.sequence([gravityDown, gravityDown2, gravityDown3, gravityDown4, gravityUp, gravityDown5, gravityUp, gravityDown5, gravityReset])
+        
+        gravityHero.run(SKAction.repeatForever(gravityHorizontalSequence))
         gravityHero.run(SKAction.repeatForever(horizontalSequence))
         
         /* Set UI connections */
         positionButton = self.childNode(withName: "positionButton") as! MSButtonNode
-        positionButton.selectedHandler = {
+        positionButton.selectedHandler = { [unowned self] in
             self.loadSelection(mode: "Position")
         }
         
         tapButton = self.childNode(withName: "tapButton") as! MSButtonNode
-        tapButton.selectedHandler = {
+        tapButton.selectedHandler = { [unowned self] in
             self.loadSelection(mode: "Tap")
         }
         
         floatButton = self.childNode(withName: "floatButton") as! MSButtonNode
-        floatButton.selectedHandler = {
+        floatButton.selectedHandler = { [unowned self] in
             self.loadSelection(mode: "Float")
         }
         
         gravityButton = self.childNode(withName: "gravityButton") as! MSButtonNode
-        gravityButton.selectedHandler = {
+        gravityButton.selectedHandler = { [unowned self] in
             self.loadSelection(mode: "Gravity")
         }
         
         backButton = self.childNode(withName: "backButton") as! MSButtonNode
-        backButton.selectedHandler = {
+        backButton.selectedHandler = { [unowned self] in
             self.loadMainMenu()
         }
     }
     
     func loadMainMenu() {
-        if let view = self.view as! SKView? {
+        if let view = self.view {
             // Load the SKScene from 'GameScene.sks'
             if let scene = MainMenu(fileNamed: "MainMenu") {
                 // Set the scale mode to scale to fit the window
@@ -119,7 +129,7 @@ class ModeSelection: SKScene {
     }
     
     func loadSelection(mode: String) {
-        if let view = self.view as! SKView? {
+        if let view = self.view {
             // Load the SKScene from 'GameScene.sks'
             if let scene = LevelSelection(fileNamed: "\(mode)Selection") {
                 // Set the scale mode to scale to fit the window

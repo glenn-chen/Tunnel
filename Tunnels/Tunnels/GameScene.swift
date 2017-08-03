@@ -31,10 +31,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var velocityX: CGFloat = 2
     var fallSpeed: CGFloat = 0.1
     
-    var cloak: SKSpriteNode!
-    var goal: SKSpriteNode!
     var homeButton: MSButtonNode!
-    var cameraNode:SKCameraNode!
+    var cameraNode: SKCameraNode!
+//    var deathLabel: SKLabelNode!
     
     class func loadGameScene(level: String) -> GameScene? {
         guard let scene = GameScene(fileNamed: level) else {
@@ -58,8 +57,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cameraNode = childNode(withName: "cameraNode") as! SKCameraNode
         self.camera = cameraNode
         
+    /*   deathLabel = childNode(withName: "deathLabel") as! SKLabelNode
+        deathLabel.isHidden = true*/
+        
         homeButton = childNode(withName: "//homeButton") as! MSButtonNode
-        homeButton.selectedHandler = {
+        homeButton.selectedHandler = { [unowned self] in
             if let view = self.view {
                 // Load the SKScene from 'GameScene.sks'
                 if let scene = MainMenu(fileNamed: "MainMenu") {
@@ -175,10 +177,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if controlState == .position {
             hero.position.y = touches.first!.location(in: self).y * reversalFactor
         }
-    /*    else if controlState == .accel {
-            let touchLocation = touches.first!.location(in: self)
-            accelFactor = touchLocation.y * 0.0005
-        }*/
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -197,6 +195,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if currentGameState != .active {
             homeButton.state = .MSButtonNodeStateActive
             hero.isHidden = false
+            
+     /*       if currentGameState == .dead {
+                deathLabel.position = CGPoint(x: cameraNode.position.x, y: cameraNode.position.y + 30)
+                deathLabel.isHidden = false
+            }*/
             return
         }
 
@@ -337,7 +340,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func loadMainMenu() {
-        if let view = self.view as! SKView? {
+        if let view = self.view {
             // Load the SKScene from 'GameScene.sks'
             if let scene = MainMenu(fileNamed: "MainMenu") {
                 // Set the scale mode to scale to fit the window
