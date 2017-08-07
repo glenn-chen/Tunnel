@@ -26,9 +26,10 @@ class SettingsScene: SKScene {
     
     override func didMove(to view: SKView) {
         /* Setup your scene here */
-        
-        /* Set UI connections */
+
         locationLabel = childNode(withName: "locationLabel") as! SKLabelNode
+        let defaults = UserDefaults.standard
+        index = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
         
         leftButton = childNode(withName: "leftButton") as! MSButtonNode
         leftButton.selectedHandler = { [unowned self] in
@@ -52,6 +53,10 @@ class SettingsScene: SKScene {
         
         backButton = self.childNode(withName: "backButton") as! MSButtonNode
         backButton.selectedHandler = { [unowned self] in
+            // Setting
+            let defaults = UserDefaults.standard
+            defaults.set(String(self.index), forKey: defaultsKeys.buttonLocationIndex)
+            
             self.loadMainMenu()
         }
     }

@@ -8,6 +8,11 @@
 
 import SpriteKit
 import GameplayKit
+import Foundation
+
+struct defaultsKeys {
+    static let buttonLocationIndex: String = "0"
+}
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -21,8 +26,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //trace, flight, reverse/turn/flip
     }
     var controlState: ControlScheme = .position
-    var currentLevel: String = "PositionTutorial"
+    var currentLevel: String = "Position_Tutorial"
     var nextLevel: String = "Position_1"
+    
+    let positionPrefix = "position"
+    let tapPrefix = "tap"
+    let floatPrefix = "float"
+    let gravityPrefix = "gravity"
     
     var reversalFactor: CGFloat = 1
     
@@ -33,7 +43,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var homeButton: MSButtonNode!
     var cameraNode: SKCameraNode!
-//    var deathLabel: SKLabelNode!
     
     class func loadGameScene(level: String) -> GameScene? {
         guard let scene = GameScene(fileNamed: level) else {
@@ -49,7 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        hero = self.childNode(withName: "//hero") as! SKReferenceNode
+        hero = self.childNode(withName: "hero") as! SKReferenceNode
         hero.zPosition = 3
         
         physicsWorld.contactDelegate = self
@@ -57,40 +66,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cameraNode = childNode(withName: "cameraNode") as! SKCameraNode
         self.camera = cameraNode
         
-    /*   deathLabel = childNode(withName: "deathLabel") as! SKLabelNode
-        deathLabel.isHidden = true*/
-        
-        homeButton = childNode(withName: "//homeButton") as! MSButtonNode
-        homeButton.selectedHandler = { [unowned self] in
-            if let view = self.view {
-                // Load the SKScene from 'GameScene.sks'
-                if let scene = MainMenu(fileNamed: "MainMenu") {
-                    // Set the scale mode to scale to fit the window
-                    scene.scaleMode = .aspectFill
-                    
-                    // Present the scene
-                    view.presentScene(scene)
-                }
-                
-                view.ignoresSiblingOrder = true
-                view.showsPhysics = false
-                view.showsFPS = true
-                view.showsNodeCount = true
-            }
-        }
+    /*    homeButton = childNode(withName: "//homeButton") as! MSButtonNode
+        homeButton.texture = SKTexture(imageNamed: "button_back")
         homeButton.state = .MSButtonNodeStateHidden
-        homeButton.position = CGPoint(x: -236, y: 133)
-        homeButton.xScale = 0.9
-        homeButton.yScale = 0.9
+        homeButton.size = CGSize(width: 70.4, height: 32)
         homeButton.zPosition = 4
+        
+        // set home button location
+        let defaults = UserDefaults.standard
+        let positionIndex = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
+        switch positionIndex {
+        case 0: // Lower Left
+            homeButton.position = CGPoint(x: -230, y: -130)
+        case 1: // Upper Left
+            homeButton.position = CGPoint(x: -230, y: 130)
+        case 2: // Upper Right
+            homeButton.position = CGPoint(x: 230, y: 130)
+        case 3: // Lower Right
+            homeButton.position = CGPoint(x: 230, y: -130)
+        default: // Default Lower Left
+            break;
+        }*/
         
         currentGameState = .active
         
         setSettings()
         
-        print(controlState)
-        print("Level at end of didmove: \(currentLevel)")
-
+        // Setting
+   /*     let defaults = UserDefaults.standard
+        defaults.set("Some String Value", forKey: defaultsKeys.keyOne)
+        defaults.set("Another String Value", forKey: defaultsKeys.keyTwo) */
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -107,27 +113,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hero.isHidden = !hero.isHidden
         }
         else if nodeA.name == "switcher" || nodeB.name == "switcher" {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15, execute: { [unowned self] in
                 self.reverseVelocities()
             })
-            
-            
-     /*       let temp = velocityX
-            velocityX = velocityY
-            velocityY = temp*/
         }
         else if nodeA.name == "goal" || nodeB.name == "goal" {
+            
+            saveLevelComplete(currentLevel)
+            
+       /*     let index: Int = currentLevel.indexOf("_")
+            let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
+            let levelType = currentLevel.substring(to: realIndex)
+            let defaults = UserDefaults.standard
+            
+            print("GameScene levelType: \(levelType)")
+            
+            defaults.set("done", forKey: currentLevel)*/
+            
+         /*   if currentLevel.index(of: "Tutorial") == nil {
+            
+                let levelNumber = Int(currentLevel.substring(from: currentLevel.index(currentLevel.startIndex, offsetBy: index + 1)))
+                
+                defaults.set("done", forKey: currentLevel)
+            }
+            else {
+                defaults.set("done", forKey: currentLevel)
+  //              print("is position completed?  \(defaults.string(forKey: defaultsKeys.positionCompleted[0]))")
+            }*/
             currentGameState = .transition
         }
         else if nodeA.name == "finalGoal" || nodeB.name == "finalGoal" {
-            //self.loadMainMenu()
+            saveLevelComplete(currentLevel)
+            
             currentGameState = .end
         }
         else if nodeA.name == "hero" || nodeB.name == "hero" { // contacts with goal and cloak will have already been detected
             currentGameState = .dead
         }
-        
-        //hero.texture = SKTexture(imageNamed: "player1")
     }
     
     func reverseVelocities() {
@@ -138,6 +160,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    /*   let defaults = UserDefaults.standard
+        print(defaults.string(forKey: defaultsKeys.posCompleted[3]))*/
+        
         if currentGameState == .dead {
             loadLevel(currentLevel)
             return
@@ -147,11 +173,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         else if currentGameState == .end {
-            loadMainMenu()
+            loadLevelSelection()
             return
         }
-        
-    //    print(controlState)
         
         if controlState == .position {
             hero.position.y = touches.first!.location(in: self).y * reversalFactor
@@ -193,13 +217,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
         
         if currentGameState != .active {
-            homeButton.state = .MSButtonNodeStateActive
+            if currentLevel.index(of: "Tutorial") == nil {
+                homeButton.state = .MSButtonNodeStateActive
+            }
             hero.isHidden = false
-            
-     /*       if currentGameState == .dead {
-                deathLabel.position = CGPoint(x: cameraNode.position.x, y: cameraNode.position.y + 30)
-                deathLabel.isHidden = false
-            }*/
             return
         }
 
@@ -219,9 +240,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func loadLevel(_ level: String) {
+    func saveLevelComplete(_ level: String) {
+        let index: Int = level.indexOf("_")
+        let realIndex = level.index(currentLevel.startIndex, offsetBy: index)
+        let levelType = level.substring(to: realIndex)
+        let defaults = UserDefaults.standard
         
-    //    print("Loading...." + level)
+        print("GameScene levelType: \(levelType)")
+        
+        defaults.set("done", forKey: currentLevel)
+    }
+    
+    func loadLevel(_ level: String) {
         
         currentGameState = .active
         
@@ -245,17 +275,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setNextLevel() {
-        print("Setting inext level")
-        if currentLevel == "PositionTutorial" {
+  //      print("Setting inext level")
+        
+        if currentLevel == "Position_Tutorial" {
             nextLevel = "Position_1"
         }
-        else if currentLevel == "TapTutorial" {
+        else if currentLevel == "Tap_Tutorial" {
             nextLevel = "Tap_1"
         }
-        else if currentLevel == "FloatTutorial" {
+        else if currentLevel == "Float_Tutorial" {
             nextLevel = "Float_1"
         }
-        else if currentLevel == "GravityTutorial" {
+        else if currentLevel == "Gravity_Tutorial" {
             nextLevel = "Gravity_1"
         }
         else {
@@ -267,26 +298,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let beginning = currentLevel.substring(to: realIndex)
             
             nextLevel = beginning + "_\(levelNumber! + 1)"
-
         }
         
     }
     
     func setSettings() {
-        print("settings " + currentLevel)
+    //    print("settings " + currentLevel)
         if currentLevel.indexOf("T") == 0 {
             //tap
             switch currentLevel {
-            case "TapTutorial", "Tap_1", "Tap_2":
+            case "Tap_Tutorial", "Tap_1", "Tap_2":
                 velocityX = 1.5
                 velocityY = 1.5
             case "Tap_3", "Tap_4", "Tap_5":
                 velocityX = 2
                 velocityY = 2
-            case "Tap_6", "Tap_7", "Tap_8", "Tap_9":
+            case "Tap_6":
+                velocityX = 2.25
+                velocityY = 2.25
+            case "Tap_7", "Tap_8", "Tap_9":
                 velocityX = 2.5
                 velocityY = 2.5
-            case "Tap_10":
+            case "Tap_10", "Tap_11", "Tap_12":
                 velocityX = 2.75
                 velocityY = 2.75
             default:
@@ -337,12 +370,60 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             controlState = .gravity
         }
+        
+        let index: Int = currentLevel.indexOf("_")
+        let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
+        let levelType = currentLevel.substring(to: realIndex)
+        
+        homeButton = childNode(withName: "//homeButton") as! MSButtonNode
+        homeButton.texture = SKTexture(imageNamed: "button_back")
+        homeButton.state = .MSButtonNodeStateHidden
+        homeButton.size = CGSize(width: 70.4, height: 32)
+        homeButton.zPosition = 4
+        
+        // set home button location
+        let defaults = UserDefaults.standard
+        let positionIndex = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
+        switch positionIndex {
+        case 0: // Lower Left
+            homeButton.position = CGPoint(x: -230, y: -130)
+        case 1: // Upper Left
+            homeButton.position = CGPoint(x: -230, y: 130)
+        case 2: // Upper Right
+            homeButton.position = CGPoint(x: 230, y: 130)
+        case 3: // Lower Right
+            homeButton.position = CGPoint(x: 230, y: -130)
+        default: // Default Lower Left
+            break;
+        }
+        
+        homeButton.selectedHandler = { [unowned self] in
+            if let view = self.view {
+                // Load the SKScene from 'GameScene.sks'
+                if let scene = LevelSelection(fileNamed: "\(levelType)Selection") {
+                    // Set the scale mode to scale to fit the window
+                    scene.scaleMode = .aspectFill
+                    
+                    // Present the scene
+                    view.presentScene(scene)
+                }
+                
+                view.ignoresSiblingOrder = true
+                view.showsPhysics = false
+                view.showsFPS = true
+                view.showsNodeCount = true
+            }
+        }
     }
     
-    func loadMainMenu() {
+    func loadLevelSelection() {
+        let index: Int = currentLevel.indexOf("_")
+        let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
+        let levelType = currentLevel.substring(to: realIndex)
+        
         if let view = self.view {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = MainMenu(fileNamed: "MainMenu") {
+            if let scene = LevelSelection(fileNamed: "\(levelType)Selection") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 
@@ -371,5 +452,9 @@ public extension String {
         
         // placeholder
         return -1
+    }
+    
+    func index(of string: String, options: CompareOptions = .literal) -> Index? {
+        return range(of: string, options: options)?.lowerBound
     }
 }

@@ -83,25 +83,55 @@ class ModeSelection: SKScene {
         gravityHero.run(SKAction.repeatForever(gravityHorizontalSequence))
         gravityHero.run(SKAction.repeatForever(horizontalSequence))
         
-        /* Set UI connections */
+        /* Set Button Functions */
+        let defaults = UserDefaults.standard
+        
         positionButton = self.childNode(withName: "positionButton") as! MSButtonNode
-        positionButton.selectedHandler = { [unowned self] in
-            self.loadSelection(mode: "Position")
+        if defaults.string(forKey: "Position_Tutorial") == "done" {
+            positionButton.selectedHandler = { [unowned self] in
+                self.loadSelection(mode: "Position")
+            }
+        }
+        else {
+            positionButton.selectedHandler = { [unowned self] in
+                self.loadGame(level: "Position_Tutorial")
+            }
         }
         
         tapButton = self.childNode(withName: "tapButton") as! MSButtonNode
-        tapButton.selectedHandler = { [unowned self] in
-            self.loadSelection(mode: "Tap")
+        if defaults.string(forKey: "Tap_Tutorial") == "done" {
+            tapButton.selectedHandler = { [unowned self] in
+                self.loadSelection(mode: "Tap")
+            }
+        }
+        else {
+            tapButton.selectedHandler = { [unowned self] in
+                self.loadGame(level: "Tap_Tutorial")
+            }
         }
         
         floatButton = self.childNode(withName: "floatButton") as! MSButtonNode
-        floatButton.selectedHandler = { [unowned self] in
-            self.loadSelection(mode: "Float")
+        if defaults.string(forKey: "Float_Tutorial") == "done" {
+            floatButton.selectedHandler = { [unowned self] in
+                self.loadSelection(mode: "Float")
+            }
+        }
+        else {
+            floatButton.selectedHandler = { [unowned self] in
+                self.loadGame(level: "Float_Tutorial")
+            }
         }
         
         gravityButton = self.childNode(withName: "gravityButton") as! MSButtonNode
-        gravityButton.selectedHandler = { [unowned self] in
-            self.loadSelection(mode: "Gravity")
+        if defaults.string(forKey: "Gravity_Tutorial") == "done" {
+            gravityButton.selectedHandler = { [unowned self] in
+                self.loadSelection(mode: "Gravity")
+            }
+        }
+        else {
+            gravityButton.selectedHandler = { [unowned self] in
+                self.loadGame(level: "Gravity_Tutorial")
+            }
         }
         
         backButton = self.childNode(withName: "backButton") as! MSButtonNode
