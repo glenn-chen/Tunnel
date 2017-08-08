@@ -72,7 +72,6 @@ class LevelSelection: SKScene {
             levelButtons[index] = childNode(withName: "button\(index)") as! MSButtonNode
             
             if defaults.string(forKey: "\(levelType!)_\(index)") == "done" {
-                print(index)
                 if index < 10 {
                     levelButtons[index]?.texture = SKTexture(imageNamed: "button_0\(index)b")
                 }

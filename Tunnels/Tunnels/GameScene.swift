@@ -9,15 +9,17 @@
 import SpriteKit
 import GameplayKit
 import Foundation
+import AVFoundation
 
 struct defaultsKeys {
-    static let buttonLocationIndex: String = "0"
+    static let buttonLocationIndex: String = "backLocation"
+    static let soundSettingsIndex: String = "soundSettings"
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     enum GameState {
-        case active, dead, transition, end
+        case active, dead, justDied, transition, end
     }
     var currentGameState: GameState!
     
@@ -29,20 +31,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentLevel: String = "Position_Tutorial"
     var nextLevel: String = "Position_1"
     
-    let positionPrefix = "position"
-    let tapPrefix = "tap"
-    let floatPrefix = "float"
-    let gravityPrefix = "gravity"
-    
-    var reversalFactor: CGFloat = 1
-    
     var hero: SKReferenceNode!
     var velocityY: CGFloat = 2
     var velocityX: CGFloat = 2
     var fallSpeed: CGFloat = 0.1
+    var reversalFactor: CGFloat = 1
     
     var homeButton: MSButtonNode!
     var cameraNode: SKCameraNode!
+    
+    var deathTimer: CGFloat = 0
+    
+    let defaults = UserDefaults.standard
+    
+    var deathSound = URL(fileURLWithPath: Bundle.main.path(forResource: "pop1", ofType: "caf")!)
+    var audioPlayer = AVAudioPlayer()
     
     class func loadGameScene(level: String) -> GameScene? {
         guard let scene = GameScene(fileNamed: level) else {
@@ -66,41 +69,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cameraNode = childNode(withName: "cameraNode") as! SKCameraNode
         self.camera = cameraNode
         
-    /*    homeButton = childNode(withName: "//homeButton") as! MSButtonNode
-        homeButton.texture = SKTexture(imageNamed: "button_back")
-        homeButton.state = .MSButtonNodeStateHidden
-        homeButton.size = CGSize(width: 70.4, height: 32)
-        homeButton.zPosition = 4
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: deathSound)
+            audioPlayer.prepareToPlay()
+        }
+        catch {
+            // handle error
+        }
         
-        // set home button location
-        let defaults = UserDefaults.standard
-        let positionIndex = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
-        switch positionIndex {
-        case 0: // Lower Left
-            homeButton.position = CGPoint(x: -230, y: -130)
-        case 1: // Upper Left
-            homeButton.position = CGPoint(x: -230, y: 130)
-        case 2: // Upper Right
-            homeButton.position = CGPoint(x: 230, y: 130)
-        case 3: // Lower Right
-            homeButton.position = CGPoint(x: 230, y: -130)
-        default: // Default Lower Left
-            break;
-        }*/
+        /*    homeButton = childNode(withName: "//homeButton") as! MSButtonNode
+         homeButton.texture = SKTexture(imageNamed: "button_back")
+         homeButton.state = .MSButtonNodeStateHidden
+         homeButton.size = CGSize(width: 70.4, height: 32)
+         homeButton.zPosition = 4
+         
+         // set home button location
+         let positionIndex = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
+         switch positionIndex {
+         case 0: // Lower Left
+         homeButton.position = CGPoint(x: -230, y: -130)
+         case 1: // Upper Left
+         homeButton.position = CGPoint(x: -230, y: 130)
+         case 2: // Upper Right
+         homeButton.position = CGPoint(x: 230, y: 130)
+         case 3: // Lower Right
+         homeButton.position = CGPoint(x: 230, y: -130)
+         default: // Default Lower Left
+         break;
+         }*/
         
         currentGameState = .active
         
         setSettings()
         
         // Setting
-   /*     let defaults = UserDefaults.standard
-        defaults.set("Some String Value", forKey: defaultsKeys.keyOne)
-        defaults.set("Another String Value", forKey: defaultsKeys.keyTwo) */
+        
+        /*        defaults.set("Some String Value", forKey: defaultsKeys.keyOne)
+         defaults.set("Another String Value", forKey: defaultsKeys.keyTwo) */
         
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-
+        
         /* Get references to bodies involved in collision */
         let contactA = contact.bodyA
         let contactB = contact.bodyB
@@ -118,28 +128,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             })
         }
         else if nodeA.name == "goal" || nodeB.name == "goal" {
-            
             saveLevelComplete(currentLevel)
             
-       /*     let index: Int = currentLevel.indexOf("_")
-            let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
-            let levelType = currentLevel.substring(to: realIndex)
-            let defaults = UserDefaults.standard
-            
-            print("GameScene levelType: \(levelType)")
-            
-            defaults.set("done", forKey: currentLevel)*/
-            
-         /*   if currentLevel.index(of: "Tutorial") == nil {
-            
-                let levelNumber = Int(currentLevel.substring(from: currentLevel.index(currentLevel.startIndex, offsetBy: index + 1)))
-                
-                defaults.set("done", forKey: currentLevel)
-            }
-            else {
-                defaults.set("done", forKey: currentLevel)
-  //              print("is position completed?  \(defaults.string(forKey: defaultsKeys.positionCompleted[0]))")
-            }*/
             currentGameState = .transition
         }
         else if nodeA.name == "finalGoal" || nodeB.name == "finalGoal" {
@@ -147,13 +137,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             currentGameState = .end
         }
-        else if nodeA.name == "hero" || nodeB.name == "hero" { // contacts with goal and cloak will have already been detected
-            currentGameState = .dead
+        else if nodeA.name == "hero" || nodeB.name == "hero" {
+            if defaults.integer(forKey: defaultsKeys.soundSettingsIndex) == 0 {
+                DispatchQueue.global(qos: .background).async {
+                    self.audioPlayer.play()
+                    /* DispatchQueue.main.async { [unowned self] in
+                     self.audioPlayer.play()
+                     }*/
+                }
+            }
+            self.currentGameState = .justDied
         }
     }
     
     func reverseVelocities() {
-        print("i love you")
         let temp = velocityX
         velocityX = velocityY
         velocityY = temp
@@ -161,11 +158,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-    /*   let defaults = UserDefaults.standard
-        print(defaults.string(forKey: defaultsKeys.posCompleted[3]))*/
+        if currentGameState == .justDied {
+            return
+        }
         
         if currentGameState == .dead {
-            loadLevel(currentLevel)
+            //  DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: { [unowned self] in
+            self.loadLevel(self.currentLevel)
+            //  })
+            //   deathTimer = 0
             return
         }
         else if currentGameState == .transition {
@@ -213,17 +214,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func update(_ currentTime: TimeInterval) {
-        
         // Called before each frame is rendered
         
         if currentGameState != .active {
+            if currentGameState == .justDied {
+                deathTimer += 1.0 / 60.0 // 60 fps
+            }
+            if deathTimer > 0.35 {
+                deathTimer = 0
+                currentGameState = .dead
+            }
+            
+            
             if currentLevel.index(of: "Tutorial") == nil {
                 homeButton.state = .MSButtonNodeStateActive
             }
             hero.isHidden = false
             return
         }
-
+        
         hero.position.x += velocityX
         hero.position.y += velocityY * reversalFactor
         
@@ -244,7 +253,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let index: Int = level.indexOf("_")
         let realIndex = level.index(currentLevel.startIndex, offsetBy: index)
         let levelType = level.substring(to: realIndex)
-        let defaults = UserDefaults.standard
         
         print("GameScene levelType: \(levelType)")
         
@@ -268,14 +276,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView?.presentScene(scene)
         
         scene?.currentLevel = level
- //       print("AOIUFPOA " + (scene?.currentLevel)!)
+        //       print("AOIUFPOA " + (scene?.currentLevel)!)
         scene?.setNextLevel()
         scene?.setSettings()
         currentLevel = level
     }
     
     func setNextLevel() {
-  //      print("Setting inext level")
+        //      print("Setting inext level")
         
         if currentLevel == "Position_Tutorial" {
             nextLevel = "Position_1"
@@ -292,7 +300,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else {
             let index: Int = currentLevel.indexOf("_")
             let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
-
+            
             let levelNumber = Int(currentLevel.substring(from: currentLevel.index(currentLevel.startIndex, offsetBy: index + 1)))
             
             let beginning = currentLevel.substring(to: realIndex)
@@ -303,13 +311,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setSettings() {
-    //    print("settings " + currentLevel)
+        //    print("settings " + currentLevel)
         if currentLevel.indexOf("T") == 0 {
             //tap
             switch currentLevel {
             case "Tap_Tutorial", "Tap_1", "Tap_2":
-                velocityX = 1.5
-                velocityY = 1.5
+                velocityX = 1.75
+                velocityY = 1.75
             case "Tap_3", "Tap_4", "Tap_5":
                 velocityX = 2
                 velocityY = 2
@@ -382,7 +390,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         homeButton.zPosition = 4
         
         // set home button location
-        let defaults = UserDefaults.standard
         let positionIndex = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
         switch positionIndex {
         case 0: // Lower Left

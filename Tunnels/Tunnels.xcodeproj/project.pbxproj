@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9090F3F1F2A7D550091B02B /* Position_10.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9090F3E1F2A7D550091B02B /* Position_10.sks */; };
-		C9090F411F2A9CCE0091B02B /* Position_9.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9090F401F2A9CCE0091B02B /* Position_9.sks */; };
+		C9090F3F1F2A7D550091B02B /* Position_9.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9090F3E1F2A7D550091B02B /* Position_9.sks */; };
+		C9090F411F2A9CCE0091B02B /* Position_10.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9090F401F2A9CCE0091B02B /* Position_10.sks */; };
 		C90CEB931F1D171300DFE10A /* Float_Tutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB921F1D171300DFE10A /* Float_Tutorial.sks */; };
 		C90CEB951F1D281A00DFE10A /* Float_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB941F1D281A00DFE10A /* Float_1.sks */; };
 		C90CEB971F1D35E300DFE10A /* Float_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = C90CEB961F1D35E300DFE10A /* Float_3.sks */; };
@@ -47,6 +47,7 @@
 		C9998EC81F1EC9AC007D41DB /* Float_10.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC71F1EC9AC007D41DB /* Float_10.sks */; };
 		C9998ECA1F1ED174007D41DB /* Tap_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9998EC91F1ED174007D41DB /* Tap_6.sks */; };
 		C99DF4011F1692B100D59066 /* Position_2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C99DF4001F1692B100D59066 /* Position_2.sks */; };
+		C9D4D1751F38E7CD00C9DB85 /* pop1.caf in Resources */ = {isa = PBXBuildFile; fileRef = C9D4D1741F38E7CD00C9DB85 /* pop1.caf */; };
 		C9D65AE71F154C5A00BDD4CE /* Position_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D65AE61F154C5A00BDD4CE /* Position_4.sks */; };
 		C9D65AE91F157D2C00BDD4CE /* Position_Tutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D65AE81F157D2C00BDD4CE /* Position_Tutorial.sks */; };
 		C9D65AEB1F158F9C00BDD4CE /* Position_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D65AEA1F158F9C00BDD4CE /* Position_1.sks */; };
@@ -69,6 +70,8 @@
 		C9E421EE1F2BA5A6009AFAFE /* ModeSelection.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E421ED1F2BA5A6009AFAFE /* ModeSelection.sks */; };
 		C9E421F01F2BA64D009AFAFE /* ModeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E421EF1F2BA64D009AFAFE /* ModeSelection.swift */; };
 		C9E421F21F2BB4A6009AFAFE /* Gravity_8.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9E421F11F2BB4A6009AFAFE /* Gravity_8.sks */; };
+		C9E99BE31F382044001FE15E /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E99BE11F382044001FE15E /* Fabric.framework */; };
+		C9E99BE41F382044001FE15E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E99BE21F382044001FE15E /* Crashlytics.framework */; };
 		C9EE41591F21176900D9FBB3 /* Gravity_4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE41581F21176900D9FBB3 /* Gravity_4.sks */; };
 		C9EE415B1F21220E00D9FBB3 /* Gravity_6.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE415A1F21220E00D9FBB3 /* Gravity_6.sks */; };
 		C9EE415D1F2156F900D9FBB3 /* Tap_7.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9EE415C1F2156F900D9FBB3 /* Tap_7.sks */; };
@@ -100,8 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C9090F3E1F2A7D550091B02B /* Position_10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_10.sks; sourceTree = "<group>"; };
-		C9090F401F2A9CCE0091B02B /* Position_9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_9.sks; sourceTree = "<group>"; };
+		C9090F3E1F2A7D550091B02B /* Position_9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_9.sks; sourceTree = "<group>"; };
+		C9090F401F2A9CCE0091B02B /* Position_10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_10.sks; sourceTree = "<group>"; };
 		C90CEB921F1D171300DFE10A /* Float_Tutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_Tutorial.sks; sourceTree = "<group>"; };
 		C90CEB941F1D281A00DFE10A /* Float_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_1.sks; sourceTree = "<group>"; };
 		C90CEB961F1D35E300DFE10A /* Float_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_3.sks; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		C9998EC71F1EC9AC007D41DB /* Float_10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Float_10.sks; sourceTree = "<group>"; };
 		C9998EC91F1ED174007D41DB /* Tap_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_6.sks; sourceTree = "<group>"; };
 		C99DF4001F1692B100D59066 /* Position_2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_2.sks; sourceTree = "<group>"; };
+		C9D4D1741F38E7CD00C9DB85 /* pop1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pop1.caf; sourceTree = "<group>"; };
 		C9D65AE61F154C5A00BDD4CE /* Position_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_4.sks; sourceTree = "<group>"; };
 		C9D65AE81F157D2C00BDD4CE /* Position_Tutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_Tutorial.sks; sourceTree = "<group>"; };
 		C9D65AEA1F158F9C00BDD4CE /* Position_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Position_1.sks; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 		C9E421ED1F2BA5A6009AFAFE /* ModeSelection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ModeSelection.sks; sourceTree = "<group>"; };
 		C9E421EF1F2BA64D009AFAFE /* ModeSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelection.swift; sourceTree = "<group>"; };
 		C9E421F11F2BB4A6009AFAFE /* Gravity_8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_8.sks; sourceTree = "<group>"; };
+		C9E99BE11F382044001FE15E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		C9E99BE21F382044001FE15E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C9EE41581F21176900D9FBB3 /* Gravity_4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_4.sks; sourceTree = "<group>"; };
 		C9EE415A1F21220E00D9FBB3 /* Gravity_6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gravity_6.sks; sourceTree = "<group>"; };
 		C9EE415C1F2156F900D9FBB3 /* Tap_7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tap_7.sks; sourceTree = "<group>"; };
@@ -186,6 +192,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E99BE41F382044001FE15E /* Crashlytics.framework in Frameworks */,
+				C9E99BE31F382044001FE15E /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,8 +255,8 @@
 				C9998EBD1F1E7458007D41DB /* Position_6.sks */,
 				C9998EBF1F1E8DC3007D41DB /* Position_7.sks */,
 				C9998EC11F1EAF4B007D41DB /* Position_8.sks */,
-				C9090F401F2A9CCE0091B02B /* Position_9.sks */,
-				C9090F3E1F2A7D550091B02B /* Position_10.sks */,
+				C9090F3E1F2A7D550091B02B /* Position_9.sks */,
+				C9090F401F2A9CCE0091B02B /* Position_10.sks */,
 			);
 			name = "Position Levels";
 			sourceTree = "<group>";
@@ -296,6 +304,8 @@
 		C9D9C4D61F13DF40001F1C50 = {
 			isa = PBXGroup;
 			children = (
+				C9E99BE11F382044001FE15E /* Fabric.framework */,
+				C9E99BE21F382044001FE15E /* Crashlytics.framework */,
 				C9D9C4E11F13DF41001F1C50 /* Tunnels */,
 				C9D9C4FC1F13DF41001F1C50 /* TunnelsTests */,
 				C9D9C5071F13DF41001F1C50 /* TunnelsUITests */,
@@ -316,6 +326,7 @@
 		C9D9C4E11F13DF41001F1C50 /* Tunnels */ = {
 			isa = PBXGroup;
 			children = (
+				C9D4D1741F38E7CD00C9DB85 /* pop1.caf */,
 				C9FDD33D1F3130D50019A2A6 /* KOMTXT__.ttf */,
 				C9FDD33B1F312F8A0019A2A6 /* KOMTITA_.ttf */,
 				C931AD9C1F22AEB300B5D87E /* Selection Scenes */,
@@ -373,6 +384,7 @@
 				C9D9C4DB1F13DF40001F1C50 /* Sources */,
 				C9D9C4DC1F13DF40001F1C50 /* Frameworks */,
 				C9D9C4DD1F13DF40001F1C50 /* Resources */,
+				C9E99BE01F381FD9001FE15E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -505,10 +517,11 @@
 				C9998ECA1F1ED174007D41DB /* Tap_6.sks in Resources */,
 				C9D65AEB1F158F9C00BDD4CE /* Position_1.sks in Resources */,
 				C9998EC61F1EC9A3007D41DB /* Float_8.sks in Resources */,
+				C9D4D1751F38E7CD00C9DB85 /* pop1.caf in Resources */,
 				C98394A61F265A7B002CD2DC /* GravitySelection.sks in Resources */,
 				C9EE41591F21176900D9FBB3 /* Gravity_4.sks in Resources */,
 				C94E65631F17EDA2007A19CF /* Tap_2.sks in Resources */,
-				C9090F3F1F2A7D550091B02B /* Position_10.sks in Resources */,
+				C9090F3F1F2A7D550091B02B /* Position_9.sks in Resources */,
 				C9E421EE1F2BA5A6009AFAFE /* ModeSelection.sks in Resources */,
 				C9F730751F16C17B008EEFEE /* Position_5.sks in Resources */,
 				C9F332D81F1D860400AB7E7E /* Float_6.sks in Resources */,
@@ -534,7 +547,7 @@
 				C95EA1C61F2BC10900768CA8 /* Tap_9.sks in Resources */,
 				C91C8DA61F2FE913001FBB10 /* SettingsScene.sks in Resources */,
 				C9D9C4E71F13DF41001F1C50 /* Actions.sks in Resources */,
-				C9090F411F2A9CCE0091B02B /* Position_9.sks in Resources */,
+				C9090F411F2A9CCE0091B02B /* Position_10.sks in Resources */,
 				C940065F1F2FB10200CF670E /* Float_12.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +567,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9E99BE01F381FD9001FE15E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 5348f0fcf2f849d46a04608d959f57be549ebd22 8f0eab78607700b016cf1e95f71fef6fa2636736ab5ea33fa4fefab38aeec66e";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9D9C4DB1F13DF40001F1C50 /* Sources */ = {
@@ -722,6 +751,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G39AQD2R87;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Tunnels/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Tunnels;
@@ -735,6 +768,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G39AQD2R87;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Tunnels/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Tunnels;

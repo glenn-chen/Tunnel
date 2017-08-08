@@ -13,14 +13,24 @@ class SettingsScene: SKScene {
     
     /* UI Connections */
     var backButton: MSButtonNode!
-    var leftButton: MSButtonNode!
-    var rightButton: MSButtonNode!
+    var leftPosButton: MSButtonNode!
+    var rightPosButton: MSButtonNode!
+    var leftSoundButton: MSButtonNode!
+    var rightSoundButton: MSButtonNode!
     var locationLabel: SKLabelNode!
+    var soundLabel: SKLabelNode!
     
-    let arr = ["Lower Left", "Upper Left", "Upper Right", "Lower Right"]
-    var index = 0 {
+    let posArr = ["Lower Left", "Upper Left", "Upper Right", "Lower Right"]
+    var posIndex = 0 {
         didSet {
-            locationLabel.text = arr[index]
+            locationLabel.text = posArr[posIndex]
+        }
+    }
+    
+    let soundArr = ["On", "Off"]
+    var soundIndex = 0 {
+        didSet {
+            soundLabel.text = soundArr[soundIndex]
         }
     }
     
@@ -28,35 +38,51 @@ class SettingsScene: SKScene {
         /* Setup your scene here */
 
         locationLabel = childNode(withName: "locationLabel") as! SKLabelNode
+        soundLabel = childNode(withName: "soundLabel") as! SKLabelNode
         let defaults = UserDefaults.standard
-        index = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
+        posIndex = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
+        soundIndex = defaults.integer(forKey: defaultsKeys.soundSettingsIndex)
         
-        leftButton = childNode(withName: "leftButton") as! MSButtonNode
-        leftButton.selectedHandler = { [unowned self] in
-            if self.index > 0 {
-                self.index -= 1
+        
+        leftPosButton = childNode(withName: "leftPosButton") as! MSButtonNode
+        leftPosButton.selectedHandler = { [unowned self] in
+            if self.posIndex > 0 {
+                self.posIndex -= 1
             }
             else {
-                self.index = self.arr.count - 1
+                self.posIndex = self.posArr.count - 1
             }
         }
         
-        rightButton = childNode(withName: "rightButton") as! MSButtonNode
-        rightButton.selectedHandler = { [unowned self] in
-            if self.index < self.arr.count - 1 {
-                self.index += 1
+        rightPosButton = childNode(withName: "rightPosButton") as! MSButtonNode
+        rightPosButton.selectedHandler = { [unowned self] in
+            if self.posIndex < self.posArr.count - 1 {
+                self.posIndex += 1
             }
             else {
-                self.index = 0
+                self.posIndex = 0
             }
         }
+        
+        leftSoundButton = childNode(withName: "leftSoundButton") as! MSButtonNode
+        leftSoundButton.selectedHandler = { [unowned self] in
+            if self.soundIndex == 0 {
+                self.soundIndex = 1
+            }
+            else {
+                self.soundIndex = 0
+            }
+        }
+        
+        rightSoundButton = childNode(withName: "rightSoundButton") as! MSButtonNode
+        rightSoundButton.selectedHandler = leftSoundButton.selectedHandler
         
         backButton = self.childNode(withName: "backButton") as! MSButtonNode
         backButton.selectedHandler = { [unowned self] in
             // Setting
             let defaults = UserDefaults.standard
-            defaults.set(String(self.index), forKey: defaultsKeys.buttonLocationIndex)
-            
+            defaults.set(String(self.posIndex), forKey: defaultsKeys.buttonLocationIndex)
+            defaults.set(String(self.soundIndex), forKey: defaultsKeys.soundSettingsIndex)
             self.loadMainMenu()
         }
     }
