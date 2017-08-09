@@ -77,27 +77,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // handle error
         }
         
-        /*    homeButton = childNode(withName: "//homeButton") as! MSButtonNode
-         homeButton.texture = SKTexture(imageNamed: "button_back")
-         homeButton.state = .MSButtonNodeStateHidden
-         homeButton.size = CGSize(width: 70.4, height: 32)
-         homeButton.zPosition = 4
-         
-         // set home button location
-         let positionIndex = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)
-         switch positionIndex {
-         case 0: // Lower Left
-         homeButton.position = CGPoint(x: -230, y: -130)
-         case 1: // Upper Left
-         homeButton.position = CGPoint(x: -230, y: 130)
-         case 2: // Upper Right
-         homeButton.position = CGPoint(x: 230, y: 130)
-         case 3: // Lower Right
-         homeButton.position = CGPoint(x: 230, y: -130)
-         default: // Default Lower Left
-         break;
-         }*/
-        
         currentGameState = .active
         
         setSettings()
@@ -163,10 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if currentGameState == .dead {
-            //  DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: { [unowned self] in
             self.loadLevel(self.currentLevel)
-            //  })
-            //   deathTimer = 0
             return
         }
         else if currentGameState == .transition {
@@ -274,15 +250,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView?.presentScene(scene)
         
         scene?.currentLevel = level
-        //       print("AOIUFPOA " + (scene?.currentLevel)!)
         scene?.setNextLevel()
         scene?.setSettings()
         currentLevel = level
     }
     
     func setNextLevel() {
-        //      print("Setting inext level")
-        
         if currentLevel == "Position_Tutorial" {
             nextLevel = "Position_1"
         }

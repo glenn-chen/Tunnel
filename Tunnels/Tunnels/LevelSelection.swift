@@ -35,38 +35,6 @@ class LevelSelection: SKScene {
         else {
             numLevels = 10
         }
-        
- /*       let defaults = UserDefaults.standard
-        var isTutorialDone = false
-        print(defaults.bool(forKey: defaultsKeys.positionCompleted[0]))
-  //      print(defaultsKeys.positionCompleted[1])
-        if levelType == "Position" {
-            isTutorialDone = defaults.bool(forKey: defaultsKeys.positionCompleted[0])
-            print("POSITION")
-        }
-        else if levelType == "Tap" {
-            isTutorialDone = defaults.bool(forKey: defaultsKeys.tapCompleted[0])
-        }
-        else if levelType == "Float" {
-            isTutorialDone = defaults.bool(forKey: defaultsKeys.floatCompleted[0])
-        }
-        else if levelType == "Gravity" {
-            isTutorialDone = defaults.bool(forKey: defaultsKeys.gravityCompleted[0])
-        }
-        levelButtons[1] = childNode(withName: "button1") as! MSButtonNode
-        
-        print("\(levelType) \(isTutorialDone)")
-        
-        if isTutorialDone {
-            levelButtons[1]?.selectedHandler = { [unowned self] in
-                self.loadGame(level: "\(levelType!)_1")
-            }
-        }
-        else {
-            levelButtons[1]?.selectedHandler = { [unowned self] in
-                self.loadGame(level: "\(levelType!)_Tutorial")
-            }
-        }*/
 
         for index in 1...numLevels {
             levelButtons[index] = childNode(withName: "button\(index)") as! MSButtonNode
