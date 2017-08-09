@@ -62,7 +62,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         hero = self.childNode(withName: "hero") as! SKReferenceNode
-        hero.zPosition = 3
+        hero.zPosition = 4
         
         physicsWorld.contactDelegate = self
         
@@ -254,8 +254,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let realIndex = level.index(currentLevel.startIndex, offsetBy: index)
         let levelType = level.substring(to: realIndex)
         
-        print("GameScene levelType: \(levelType)")
-        
         defaults.set("done", forKey: currentLevel)
     }
     
@@ -387,7 +385,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         homeButton.texture = SKTexture(imageNamed: "button_back")
         homeButton.state = .MSButtonNodeStateHidden
         homeButton.size = CGSize(width: 70.4, height: 32)
-        homeButton.zPosition = 4
+        homeButton.zPosition = 5
         
         // set home button location
         let positionIndex = defaults.integer(forKey: defaultsKeys.buttonLocationIndex)

@@ -109,7 +109,6 @@ class LevelSelection: SKScene {
     }
     
     func loadGame(level: String) {
-        print(level)
         /* 1) Grab reference to our SpriteKit view */
         guard let skView = self.view as SKView! else {
             print("Could not get Skview")
