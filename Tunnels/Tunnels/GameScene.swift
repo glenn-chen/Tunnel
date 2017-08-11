@@ -226,10 +226,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func saveLevelComplete(_ level: String) {
-        let index: Int = level.indexOf("_")
-        let realIndex = level.index(currentLevel.startIndex, offsetBy: index)
-        let levelType = level.substring(to: realIndex)
-        
         defaults.set("done", forKey: currentLevel)
     }
     
@@ -244,7 +240,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let scene = GameScene(fileNamed: level) as GameScene!
         
         /* Ensure correct aspect mode */
-        scene?.scaleMode = .aspectFill
+        scene?.scaleMode = .aspectFit
         
         /* Restart game scene */
         skView?.presentScene(scene)
@@ -256,33 +252,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setNextLevel() {
-        if currentLevel == "Position_Tutorial" {
-            nextLevel = "Position_1"
+        
+        // no next level after tutorial
+        if currentLevel.index(of: "Tutorial") != nil {
+            return
         }
-        else if currentLevel == "Tap_Tutorial" {
-            nextLevel = "Tap_1"
-        }
-        else if currentLevel == "Float_Tutorial" {
-            nextLevel = "Float_1"
-        }
-        else if currentLevel == "Gravity_Tutorial" {
-            nextLevel = "Gravity_1"
-        }
-        else {
-            let index: Int = currentLevel.indexOf("_")
-            let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
-            
-            let levelNumber = Int(currentLevel.substring(from: currentLevel.index(currentLevel.startIndex, offsetBy: index + 1)))
-            
-            let beginning = currentLevel.substring(to: realIndex)
-            
-            nextLevel = beginning + "_\(levelNumber! + 1)"
-        }
+        
+        let index: Int = currentLevel.indexOf("_")
+        let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
+        
+        
+        let levelNumber = Int(currentLevel.substring(from: currentLevel.index(currentLevel.startIndex, offsetBy: index + 1)))
+        
+        let beginning = currentLevel.substring(to: realIndex)
+        
+        nextLevel = beginning + "_\(levelNumber! + 1)"
+        
         
     }
     
     func setSettings() {
-        //    print("settings " + currentLevel)
         if currentLevel.indexOf("T") == 0 {
             //tap
             switch currentLevel {
@@ -350,9 +339,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             controlState = .gravity
         }
         
-        let index: Int = currentLevel.indexOf("_")
+      /*  let index: Int = currentLevel.indexOf("_")
         let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
-        let levelType = currentLevel.substring(to: realIndex)
+        let levelType = currentLevel.substring(to: realIndex)*/
+        let realIndex = currentLevel.index(of: "_")
+        let levelType = currentLevel.substring(to: realIndex!)
         
         homeButton = childNode(withName: "//homeButton") as! MSButtonNode
         homeButton.texture = SKTexture(imageNamed: "button_back")
@@ -380,7 +371,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 // Load the SKScene from 'GameScene.sks'
                 if let scene = LevelSelection(fileNamed: "\(levelType)Selection") {
                     // Set the scale mode to scale to fit the window
-                    scene.scaleMode = .aspectFill
+                    scene.scaleMode = .aspectFit
                     
                     // Present the scene
                     view.presentScene(scene)
@@ -388,22 +379,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 view.ignoresSiblingOrder = true
                 view.showsPhysics = false
-                view.showsFPS = true
-                view.showsNodeCount = true
+                view.showsFPS = false
+                view.showsNodeCount = false
             }
         }
     }
     
     func loadLevelSelection() {
-        let index: Int = currentLevel.indexOf("_")
-        let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
-        let levelType = currentLevel.substring(to: realIndex)
+     //   let index: Int = currentLevel.indexOf("_")
+      //  let realIndex = currentLevel.index(currentLevel.startIndex, offsetBy: index)
+        
+        let realIndex = currentLevel.index(of: "_")
+        let levelType = currentLevel.substring(to: realIndex!)
         
         if let view = self.view {
             // Load the SKScene from 'GameScene.sks'
             if let scene = LevelSelection(fileNamed: "\(levelType)Selection") {
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
+                scene.scaleMode = .aspectFit
                 
                 // Present the scene
                 view.presentScene(scene)
@@ -411,8 +404,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             view.ignoresSiblingOrder = true
             view.showsPhysics = false
-            view.showsFPS = true
-            view.showsNodeCount = true
+            view.showsFPS = false
+            view.showsNodeCount = false
         }
     }
 }

@@ -63,7 +63,7 @@ class LevelSelection: SKScene {
             // Load the SKScene from 'GameScene.sks'
             if let scene = ModeSelection(fileNamed: "ModeSelection") {
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
+                scene.scaleMode = .aspectFit
                 
                 // Present the scene
                 view.presentScene(scene)
@@ -71,8 +71,8 @@ class LevelSelection: SKScene {
             
             view.ignoresSiblingOrder = true
             view.showsPhysics = false
-            view.showsFPS = true
-            view.showsNodeCount = true
+            view.showsFPS = false
+            view.showsNodeCount = false
         }
     }
     
